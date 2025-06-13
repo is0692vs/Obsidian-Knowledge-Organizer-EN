@@ -1,0 +1,72 @@
+# Obsidian の設定ディレクトリ
+.obsidian/
+
+# macOS のシステムファイル
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# モバイル同期中の一時ファイル
+.mobile
+.sync
+
+# キャッシュ
+.cache/
+link_check_report.json
+# プライベートファイル (必要に応じてコメント解除)
+# Private/
+
+# Vault内の実データディレクトリ内容を無視（ディレクトリ構造は保持）
+# Articles、Words以下の新規追加ファイルは追跡しない
+Vault/Articles/*/*
+Vault/Clippings/*
+Vault/Words/*/*
+
+# ただし、現在存在する説明用mdファイルのみ追跡を継続
+
+# 特に各ディレクトリの説明ファイル（現在存在するもの）は確実に追跡
+# 新しい命名規則：各ディレクトリ直下に00-プレフィックス付きファイル（ABC順で最上位表示）
+!Vault/Articles/Cloud/00-Articles-Cloud.md
+!Vault/Articles/Finance/00-Articles-Finance.md
+!Vault/Articles/Infrastructure/00-Articles-Infrastructure.md
+!Vault/Articles/Programming/00-Articles-Programming.md
+!Vault/Articles/Tools/00-Articles-Tools.md
+
+!Vault/Words/Authors/00-Words-Authors.md
+!Vault/Words/Cloud/00-Words-Cloud.md
+!Vault/Words/Finance/00-Words-Finance.md
+!Vault/Words/Infrastructure/00-Words-Infrastructure.md
+!Vault/Words/Programming/00-Words-Programming.md
+!Vault/Words/Services/00-Words-Services.md
+!Vault/Words/Tags/00-Words-Tags.md
+!Vault/Words/Tools/00-Words-Tools.md
+
+# 移行期間中の旧命名規則ファイルも一時的に追跡（段階的に削除予定）
+!Vault/Articles/00-Articles.md
+!Vault/Articles/Cloud/Cloud.md
+!Vault/Articles/Finance/Finance.md
+!Vault/Articles/Infrastructure/Infrastructure.md
+!Vault/Articles/Programming/Programming.md
+!Vault/Articles/Tools/Tools.md
+
+!Vault/Words/Words.md
+!Vault/Words/Authors/Authors.md
+!Vault/Words/Cloud/Cloud.md
+!Vault/Words/Finance/Finance.md
+!Vault/Words/Infrastructure/Infrastructure.md
+!Vault/Words/Programming/Programming.md
+!Vault/Words/Services/Services.md
+!Vault/Words/Tags/Tags.md
+!Vault/Words/Tools/Tools.md
+
+# Clippingsディレクトリ構造保持用
+!Vault/Clippings/.gitkeep
