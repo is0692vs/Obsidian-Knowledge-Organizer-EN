@@ -48,109 +48,116 @@ Terms related to finance, investment, and economics
 Terms related to IT infrastructure and system foundations
 
 - Network technology
-- セキュリティ
-- データベース
-- 監視・運用ツール
+- Security
+- Databases
+- Monitoring and operations tools
 
 ### Programming/
 
-プログラミング言語、開発技術関連の用語
+Programming languages and development technology related terms
 
-- プログラミング言語
-- フレームワーク・ライブラリ
-- 開発手法・概念
-- アルゴリズム
+- Programming languages
+- Frameworks and libraries
+- Development methods and concepts
+- Algorithms
 
 ### Services/
 
-Web サービス、アプリケーション、プラットフォーム
+Web services, applications, and platforms
 
-- SaaS 製品
-- 開発支援サービス
-- 通信・コラボレーションツール
-- エンターテイメントサービス
+- SaaS products
+- Development support services
+- Communication and collaboration tools
+- Entertainment services
 
 ### Tools/
 
-開発ツール、ソフトウェア関連の用語
+Development tools and software related terms
 
-- IDE・エディタ
-- ビルド・デプロイツール
-- AI ツール
-- 生産性向上ツール
+- IDEs and editors
+- Build and deployment tools
+- AI tools
+- Productivity tools
 
-## 🔄 動的ディレクトリ管理
+## 🔄 Dynamic Directory Management
 
-**AI エージェント向け指示**：既存のカテゴリに適合しない新しい分野の用語が蓄積された場合（5 件以上）、以下の手順で新しいディレクトリを作成してください：
+**Instructions for AI Agents**: When terms in new fields that don't fit existing categories accumulate (5 or more), create new directories following these steps:
 
-1. **このファイル（00-Words.md）を更新**：新しいディレクトリの説明をカテゴリ構造セクションに追加
-2. **新しいディレクトリを作成**：Words/{新ディレクトリ名}/
-3. **ディレクトリ説明ファイルを作成**：Words-{新ディレクトリ名}.md（ルートディレクトリ Vault/直下）
-4. **Words-Index.md を更新**：新しいカテゴリセクションを追加
-5. **README.md を更新**：プロジェクトルートの README.md に新しいカテゴリを反映
+1. **Update this file (00-Words.md)**: Add new directory description to the Category Structure section
+2. **Create new directory**: Words/{NewDirectoryName}/
+3. **Create directory description file**: 00-Words-{NewDirectoryName}.md (in the directory)
+4. **Update file index**: Add new category section to the main file index
+5. **Update README.md**: Reflect new category in project root README.md
 
-**新規カテゴリの例**：
+**Examples of new categories**:
 
-- QuantumComputing/ （量子コンピューティング用語）
-- Blockchain/ （ブロックチェーン・暗号技術）
-- MachineLearning/ （機械学習・AI 用語）
-- GameDevelopment/ （ゲーム開発用語）
-- Biotechnology/ （バイオテクノロジー用語）
-- IoT/ （IoT・エッジコンピューティング）
-- AR_VR/ （拡張現実・仮想現実）
+- QuantumComputing/ (Quantum computing terms)
+- Blockchain/ (Blockchain and cryptographic technology)
+- MachineLearning/ (Machine learning and AI terms)
+- GameDevelopment/ (Game development terms)
+- Biotechnology/ (Biotechnology terms)
+- IoT/ (IoT and edge computing)
+- AR_VR/ (Augmented reality and virtual reality)
 
-## フォルダの使い方
+## How to Use This Folder
 
-このフォルダは知識ベースの基盤となる重要な用語を集めたものです。新しい用語を追加する際は以下のポイントを考慮してください：
+This folder collects important terms that form the foundation of the knowledge base. When adding new terms, consider the following points:
 
-1. **フロントマター** - title, created, tags などの基本情報
-2. **簡潔な定義** - 冒頭に簡潔な定義を記述
-3. **構造化された内容** - 見出しを使って論理的に構造化
-4. **相互リンク** - 関連する他の用語へのリンク
-5. **外部リンク** - 公式サイト・ドキュメントへのリンク
+1. **Front matter** - Basic information like title, created, tags
+2. **Concise definition** - Write a concise definition at the beginning
+3. **Structured content** - Structure logically using headings
+4. **Cross-links** - Links to other related terms
+5. **External links** - Links to official sites and documentation
 
-## 🔧 AI エージェントによる自動処理
+## 🔧 Automated Processing by AI Agents
 
-このフォルダの用語は、AI エージェントが以下の処理を自動実行します：
+Terms in this folder are automatically processed by AI agents for:
 
-1. **用語抽出**: 記事から技術用語、人名、サービス名などを特定
-2. **重複チェック**: 既存用語との重複や表記揺れを確認
-3. **分類処理**: 適切なカテゴリに振り分け
-4. **ファイル作成**: 各用語に対応する Markdown ファイルを作成
-5. **リンク生成**: 関連用語との双方向リンクを構築
-6. **インデックス更新**: Words-Index.md に新しい用語を追加
+1. **Term extraction**: Identify technical terms, names, service names from articles
+2. **Duplicate checking**: Check for duplicates and notation variations with existing terms
+3. **Classification**: Categorize into appropriate folders
+4. **File creation**: Create corresponding Markdown files for each term
+5. **Link generation**: Build bidirectional links with related terms
+6. **Index updates**: Add new terms to relevant index files
 
-## 📝 用語ファイルの標準構造
+## 📝 Standard Structure for Term Files
 
-各用語ファイルは以下の構造に従います：
+Each term file follows this structure:
 
 ```markdown
-# 用語名
+# Term Name
 
-## 概要
+## Overview
 
-用語の基本的な説明
+Basic explanation of the term
 
-## 詳細
+## Details
 
-より詳しい説明や技術的な内容
+More detailed explanation and technical content
 
-## 関連用語
+## Related Terms
 
-- [[関連用語1]]
-- [[関連用語2]]
+- ((Related Term 1)) - Use [[]] syntax when linking to actual existing files
+- ((Related Term 2)) - Use [[]] syntax when linking to actual existing files
 
-## 関連記事
+## Related Articles
 
-- [[記事タイトル1]]
-- [[記事タイトル2]]
+- ((Article Title 1)) - Use [[]] syntax when linking to actual existing files
+- ((Article Title 2)) - Use [[]] syntax when linking to actual existing files
 
-## 外部リンク
+## External Links
 
-- [公式サイト](URL)
-- [ドキュメント](URL)
+- [Official Site](URL)
+- [Documentation](URL)
 
-## タグ
+## Tags
 
-#カテゴリ名 #サブカテゴリ
+#CategoryName #SubCategory
 ```
+
+**Important Note for AI Agents**:
+
+- In this documentation, we use (()) for examples to avoid creating broken links
+- When creating actual files and linking to existing files, always use [[]] syntax
+- Only create [[]] links when the target file actually exists
+- Never create [[]] links to non-existent example files like [[Sample Article]] or [[Example Term]]

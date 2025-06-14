@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-Obsidianナレッジベースのリンク切れチェッカー
-[[]]形式の内部リンクをチェックし、対応するファイルが存在しないリンクを特定する
+Obsidian Knowledge Base Link Checker
+Check internal links in [[]] format and identify links without corresponding files
 """
 
 import os
@@ -20,17 +20,17 @@ class ObsidianLinkChecker:
         self.link_pattern = re.compile(r'\[\[([^\]]+)\]\]')
         
     def scan_existing_files(self) -> Set[str]:
-        """ワークスペース内の全.mdファイルを走査し、ファイル名セットを作成"""
+        """Scan all .md files in workspace and create a set of file names"""
         md_files = set()
         
         for root, dirs, files in os.walk(self.vault_path):
             for file in files:
                 if file.endswith('.md'):
-                    # 拡張子を除いたファイル名
+                    # File name without extension
                     base_name = file[:-3]
                     md_files.add(base_name)
                     
-                    # フルパス形式（相対パス）も追加
+                    # Also add full path format (relative path)
                     rel_path = os.path.relpath(os.path.join(root, file), self.vault_path)
                     rel_path_no_ext = rel_path[:-3]
                     md_files.add(rel_path_no_ext)
@@ -39,30 +39,30 @@ class ObsidianLinkChecker:
         return md_files
     
     def extract_links_from_file(self, file_path: Path) -> List[Tuple[str, int, str]]:
-        """ファイルから[[]]リンクを抽出"""
+        """Extract [[]] links from file"""
         links = []
         try:
             with open(file_path, 'r', encoding='utf-8') as f:
                 for line_num, line in enumerate(f, 1):
                     matches = self.link_pattern.findall(line)
                     for match in matches:
-                        # パイプリンク（[[リンク先|表示名]]）の場合、リンク先のみを取得
+                        # For pipe links ([[link_target|display_name]]), get only the link target
                         link_target = match.split('|')[0].strip()
                         links.append((link_target, line_num, line.strip()))
         except (UnicodeDecodeError, FileNotFoundError) as e:
-            print(f"ファイル読み込みエラー: {file_path} - {e}")
+            print(f"File read error: {file_path} - {e}")
         
         return links
     
     def check_all_links(self) -> Dict:
-        """全ファイルのリンクをチェック"""
-        print("🔍 ファイル走査中...")
+        """Check all file links"""
+        print("🔍 Scanning files...")
         self.scan_existing_files()
-        print(f"📁 発見されたファイル数: {len(self.existing_files)}")
+        print(f"📁 Files found: {len(self.existing_files)}")
         
-        print("\n🔗 リンクチェック中...")
+        print("\n🔗 Checking links...")
         
-        # 全.mdファイルを走査
+        # Scan all .md files
         for root, dirs, files in os.walk(self.vault_path):
             for file in files:
                 if file.endswith('.md'):
@@ -72,7 +72,7 @@ class ObsidianLinkChecker:
                     links = self.extract_links_from_file(file_path)
                     
                     for link_target, line_num, line_content in links:
-                        # テンプレート用のプレースホルダーをスキップ
+                        # Skip template placeholders
                         if self.is_template_placeholder(link_target):
                             continue
                             
@@ -92,8 +92,13 @@ class ObsidianLinkChecker:
         return self.generate_report()
     
     def is_template_placeholder(self, link_target: str) -> bool:
-        """テンプレート用のプレースホルダーかどうかを判定"""
+        """Check if it's a template placeholder"""
         placeholders = [
+            'Term Name', 'Related Term 1', 'Related Term 2', 'Related Term 3',
+            'Tag Name', 'Tool Name', 'Service Name', 'Author Name',
+            'File Name', 'Category Name', 'Project Name',
+            'Article Title', 'Concept Name', 'Technology Name',
+            # Japanese placeholders (for backward compatibility)
             '用語名', '関連用語1', '関連用語2', '関連用語3',
             'タグ名', 'ツール名', 'サービス名', '著者名',
             'ファイル名', 'カテゴリ名', 'プロジェクト名',
@@ -103,18 +108,18 @@ class ObsidianLinkChecker:
         return link_target in placeholders
     
     def check_link_exists(self, link_target: str) -> bool:
-        """リンク先ファイルが存在するかチェック"""
-        # 直接的なファイル名マッチ
+        """Check if the link target file exists"""
+        # Direct filename match
         if link_target in self.existing_files:
             return True
         
-        # 大文字小文字を無視した検索
+        # Case-insensitive search
         link_lower = link_target.lower()
         for existing_file in self.existing_files:
             if existing_file.lower() == link_lower:
                 return True
         
-        # 部分一致検索（末尾一致）
+        # Partial match search (suffix match)
         for existing_file in self.existing_files:
             if existing_file.endswith(link_target) or link_target.endswith(existing_file):
                 return True
@@ -122,7 +127,7 @@ class ObsidianLinkChecker:
         return False
     
     def generate_report(self) -> Dict:
-        """レポート生成"""
+        """Generate report"""
         report = {
             'summary': {
                 'total_files': len(self.existing_files),
@@ -137,24 +142,24 @@ class ObsidianLinkChecker:
         return report
     
     def print_report(self):
-        """レポートをコンソールに出力"""
+        """Print report to console"""
         report = self.generate_report()
         
         print("\n" + "="*60)
-        print("📊 OBSIDIAN リンク切れチェック結果")
+        print("📊 OBSIDIAN BROKEN LINK CHECK RESULTS")
         print("="*60)
         
         summary = report['summary']
-        print(f"📁 総ファイル数: {summary['total_files']}")
-        print(f"🔗 総リンク数: {summary['total_links']}")
-        print(f"❌ リンク切れ数: {summary['broken_links']}")
-        print(f"✅ 成功率: {summary['success_rate']}%")
+        print(f"📁 Total Files: {summary['total_files']}")
+        print(f"🔗 Total Links: {summary['total_links']}")
+        print(f"❌ Broken Links: {summary['broken_links']}")
+        print(f"✅ Success Rate: {summary['success_rate']}%")
         
         if self.broken_links:
-            print(f"\n💥 リンク切れ詳細 ({len(self.broken_links)}件):")
+            print(f"\n💥 Broken Link Details ({len(self.broken_links)} items):")
             print("-" * 60)
             
-            # ファイル別にグループ化
+            # Group by file
             by_file = {}
             for link in self.broken_links:
                 file_name = link['file']
@@ -169,32 +174,32 @@ class ObsidianLinkChecker:
                     print(f"        → {link['content'][:100]}")
         
         else:
-            print("\n🎉 リンク切れは見つかりませんでした！")
+            print("\n🎉 No broken links found!")
     
     def save_report(self, output_file: str = "link_check_report.json"):
-        """レポートをJSONファイルに保存"""
+        """Save report to JSON file"""
         report = self.generate_report()
         
         output_path = self.vault_path / output_file
         with open(output_path, 'w', encoding='utf-8') as f:
             json.dump(report, f, ensure_ascii=False, indent=2)
         
-        print(f"\n💾 レポートを保存しました: {output_path}")
+        print(f"\n💾 Report saved: {output_path}")
         return output_path
     
     def get_broken_links_array(self) -> List[str]:
-        """リンク切れターゲットのリストを返す"""
+        """Return list of broken link targets"""
         return [link['target'] for link in self.broken_links]
     
     def suggest_fixes(self):
-        """修正提案を生成"""
+        """Generate fix suggestions"""
         if not self.broken_links:
             return
         
-        print("\n🔧 修正提案:")
+        print("\n🔧 Fix Suggestions:")
         print("-" * 60)
         
-        # リンク切れターゲットをユニークにして頻度順にソート
+        # Make broken targets unique and sort by frequency
         broken_targets = {}
         for link in self.broken_links:
             target = link['target']
@@ -204,157 +209,157 @@ class ObsidianLinkChecker:
         
         sorted_targets = sorted(broken_targets.items(), key=lambda x: x[1], reverse=True)
         
-        for target, count in sorted_targets[:10]:  # 上位10件
-            print(f"📝 '{target}' (出現{count}回)")
+        for target, count in sorted_targets[:10]:  # Top 10
+            print(f"📝 '{target}' (appears {count} times)")
             
-            # 類似ファイル名を検索
+            # Search for similar file names
             similar_files = self.find_similar_files(target)
             if similar_files:
-                print(f"   💡 類似ファイル: {', '.join(similar_files[:3])}")
+                print(f"   💡 Similar files: {', '.join(similar_files[:3])}")
             else:
-                print(f"   ➕ 新規作成が必要: {target}.md")
+                print(f"   ➕ New file needed: {target}.md")
             print()
 
 
     def find_similar_files(self, target: str, threshold: float = 0.6) -> List[str]:
-        """類似ファイル名を検索（簡易版）"""
+        """Search for similar file names (simple version)"""
         target_lower = target.lower()
         similar = []
         
         for existing_file in self.existing_files:
             existing_lower = existing_file.lower()
             
-            # 部分文字列が含まれているかチェック
+            # Check if substring is contained
             if target_lower in existing_lower or existing_lower in target_lower:
                 similar.append(existing_file)
         
         return similar
 
     def get_unique_broken_links(self) -> List[str]:
-        """ユニークなリンク切れファイル名のリストを取得（AIエージェント向け）"""
+        """Get list of unique broken file names (for AI agents)"""
         if not self.broken_links:
             return []
         
-        # プレースホルダーを除外したユニークなリンク切れファイル名を取得
+        # Get unique broken file names excluding placeholders
         broken_targets = set()
         for link in self.broken_links:
             target = link['target']
             if not self.is_template_placeholder(target):
                 broken_targets.add(target)
         
-        # 頻度順にソート
+        # Sort by frequency
         target_counts = {}
         for link in self.broken_links:
             target = link['target']
             if target in broken_targets:
                 target_counts[target] = target_counts.get(target, 0) + 1
         
-        # 頻度順でソート
+        # Sort by frequency
         sorted_targets = sorted(target_counts.items(), key=lambda x: x[1], reverse=True)
         return [target for target, count in sorted_targets]
     
     def print_creation_list(self):
-        """AIエージェント向けの作成すべきファイルリストを出力"""
+        """Print list of files to create for AI agents"""
         unique_targets = self.get_unique_broken_links()
         
         if not unique_targets:
-            print("\n✅ 作成すべきファイルはありません！")
+            print("\n✅ No files need to be created!")
             return
         
-        print(f"\n📋 AIエージェント向け：作成すべきファイルリスト ({len(unique_targets)}件)")
+        print(f"\n📋 For AI Agents: List of Files to Create ({len(unique_targets)} items)")
         print("=" * 60)
-        print("🤖 以下のファイル名について、意味を解釈して適切なディレクトリに作成してください：")
+        print("🤖 Please interpret the meaning of the following file names and create them in appropriate directories:")
         print("-" * 60)
         
         for i, target in enumerate(unique_targets, 1):
-            # 頻度を取得
+            # Get frequency
             count = sum(1 for link in self.broken_links if link['target'] == target)
-            print(f"{i:2d}. {target} (参照回数: {count}回)")
+            print(f"{i:2d}. {target} (references: {count} times)")
         
         print("-" * 60)
-        print("📁 推奨配置ディレクトリ:")
-        print("   Words/Programming/  - プログラミング関連用語")
-        print("   Words/Tools/        - ツール・AI技術関連") 
-        print("   Words/Cloud/        - クラウドサービス関連")
-        print("   Words/Infrastructure/ - インフラ・サーバー関連")
-        print("   Words/Finance/      - 投資・金融関連")
-        print("   Words/Authors/      - 人名・著者関連")
-        print("   Words/Services/     - サービス・タグ関連")
+        print("📁 Recommended placement directories:")
+        print("   Words/Programming/  - Programming-related terms")
+        print("   Words/Tools/        - Tools & AI technology") 
+        print("   Words/Cloud/        - Cloud services")
+        print("   Words/Infrastructure/ - Infrastructure & servers")
+        print("   Words/Finance/      - Investment & finance")
+        print("   Words/Authors/      - Names & authors")
+        print("   Words/Services/     - Services & tags")
         print("=" * 60)
 
 
 def main():
     """
-    メイン実行関数 - セッション終了条件判定機能付き
-    戻り値: True = セッション終了条件達成（リンク切れ0件）
-           False = セッション終了条件未達成（リンク切れ有り）
+    Main execution function - with session termination condition check
+    Return value: True = Session termination condition achieved (0 broken links)
+                 False = Session termination condition not achieved (broken links exist)
     """
     import sys
     
-    # ワークスペースパスの設定
+    # Set workspace path
     if len(sys.argv) > 1:
         vault_path = sys.argv[1]
     else:
-        vault_path = "."  # 現在のディレクトリ
+        vault_path = "."  # Current directory
     
-    print("� OBSIDIAN リンク切れチェッカー")
-    print("📋 セッション終了条件: リンク切れ件数 = 0件")
-    print(f"📂 対象パス: {os.path.abspath(vault_path)}")
+    print("🔗 OBSIDIAN BROKEN LINK CHECKER")
+    print("📋 Session termination condition: Number of broken links = 0")
+    print(f"📂 Target path: {os.path.abspath(vault_path)}")
     print("=" * 60)
     
     checker = ObsidianLinkChecker(vault_path)
     
     try:
-        # チェック実行
+        # Execute check
         report = checker.check_all_links()
         
-        # 結果表示
+        # Display results
         checker.print_report()
         
-        # セッション終了条件判定
+        # Session termination condition check
         broken_count = len(checker.broken_links)
         
         print("\n" + "=" * 60)
-        print("🎯 セッション終了条件判定")
+        print("🎯 Session Termination Condition Check")
         print("=" * 60)
         
         if broken_count == 0:
-            print("✅ セッション終了条件達成！")
-            print("🎉 リンク切れ件数: 0件")
-            print("✨ ナレッジベースのリンク整合性が完璧です")
+            print("✅ Session termination condition achieved!")
+            print("🎉 Broken links count: 0")
+            print("✨ Knowledge base link integrity is perfect")
             print("=" * 60)
             return True
         else:
-            print("⚠️  セッション終了条件未達成")
-            print(f"💥 リンク切れ件数: {broken_count}件")
-            print("\n📝 次のステップ:")
-            print("   1. 下記のリンク切れファイルをAIエージェントが作成")
-            print("   2. 作成後、再度このスクリプトを実行")
-            print("   3. リンク切れ0件でセッション完了")
+            print("⚠️  Session termination condition not achieved")
+            print(f"💥 Broken links count: {broken_count}")
+            print("\n📝 Next steps:")
+            print("   1. AI agent creates the broken link files listed below")
+            print("   2. After creation, run this script again")
+            print("   3. Session complete when broken links = 0")
             
-        # レポート保存
+        # Save report
         checker.save_report()
         
-        # AIエージェント向けファイル作成リスト表示
+        # Display file creation list for AI agents
         if broken_count > 0:
             checker.print_creation_list()
         
-        # 詳細修正提案
+        # Detailed fix suggestions
         checker.suggest_fixes()
         
         print("\n" + "=" * 60)
-        print("🤖 AIエージェント向け情報:")
-        print(f"   作成すべきファイル数: {broken_count}件")
-        print("   詳細は上記の修正提案を参照してください")
+        print("🤖 Information for AI Agents:")
+        print(f"   Files to create: {broken_count}")
+        print("   Please refer to the above fix suggestions for details")
         print("=" * 60)
         
         return False
         
     except KeyboardInterrupt:
-        print("\n⏹️  処理が中断されました")
+        print("\n⏹️  Process was interrupted")
         return False
     except Exception as e:
-        print(f"\n❌ エラーが発生しました: {e}")
+        print(f"\n❌ An error occurred: {e}")
         import traceback
         traceback.print_exc()
         return False

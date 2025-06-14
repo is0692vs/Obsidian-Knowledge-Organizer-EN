@@ -1,53 +1,62 @@
 # 00-Words-Infrastructure
 
-## 概要
+## Overview
 
-このディレクトリは IT インフラ、システム基盤関連の用語を管理します。
+This directory manages terms related to IT infrastructure and system foundations.
 
-## 対象範囲
+## Target Scope
 
-- ネットワーク技術・プロトコル
-- セキュリティ・認証・認可技術
-- データベース・ストレージ技術
-- 監視・ログ管理・運用技術
-- コンテナ・仮想化技術
-- CI/CD・DevOps・SRE 実践
+- Network technologies and protocols
+- Security, authentication, and authorization technologies
+- Database and storage technologies
+- Monitoring, log management, and operations technologies
+- Container and virtualization technologies
+- CI/CD, DevOps, and SRE practices
 
-## サブディレクトリ
+## Current Files
 
-インフラ関連用語が増加した場合は以下のようなサブディレクトリの作成を検討します：
+This directory currently contains the following files:
 
-- Networking/ - ネットワーク技術関連用語
-- Security/ - セキュリティ・認証関連用語
-- Database/ - データベース・ストレージ関連用語
-- Monitoring/ - 監視・運用関連用語
-- Containers/ - コンテナ・仮想化関連用語
-- DevOps/ - CI/CD・DevOps 関連用語
+- [[00-Words-Infrastructure]] - This directory description file
 
-## 用語ファイルの構造
+_When new term files are added, they will be listed here with actual links to existing files._
 
-各インフラ用語ファイルには以下の情報を含めます：
+## Subdirectories
 
-- 技術・概念の基本説明
-- 主要な実装・製品例
-- 使用事例・適用場面
-- 関連技術・代替技術
-- セキュリティ考慮事項（該当する場合）
+When infrastructure-related terms increase, consider creating subdirectories such as:
 
-## 関連リンク
+- Networking/ - Network technology related terms
+- Security/ - Security and authentication related terms
+- Database/ - Database and storage related terms
+- Monitoring/ - Monitoring and operations related terms
+- Containers/ - Container and virtualization related terms
+- DevOps/ - CI/CD and DevOps related terms
 
-- [[00-Words]] - 用語集メインページ
+## Term File Structure
 
-## AI エージェント向け指示
+Each infrastructure term file includes the following information:
 
-このディレクトリに用語ファイルを追加する際は：
+- Basic explanation of technology or concept
+- Major implementation and product examples
+- Use cases and application scenarios
+- Related technologies and alternatives
+- Security considerations (when applicable)
 
-1. 正式な技術用語・規格名を使用
-2. プロトコル・標準については版数・仕様も記録
-3. セキュリティ関連用語は適切な警告・注意事項を含める
-4. ツール製品とインフラ概念を明確に分離
-5. 同一カテゴリの用語が 5 件を超えた場合、サブディレクトリ化を検討
+## Related Links
 
-## 更新履歴
+- [[00-Words]] - Main terms collection page
 
-- 2025-06-13: ディレクトリ説明ファイル作成
+## AI Agent Instructions
+
+When adding term files to this directory:
+
+1. Use official technical terms and standard names
+2. Record version numbers and specifications for protocols and standards
+3. Include security considerations for security-related terms
+4. Properly link to related tools in Words/Tools/
+5. Consider subdirectory creation when terms in the same category exceed 5 files
+
+## Update History
+
+- 2025-06-15: Directory description file translated to English
+- 2025-06-13: Directory description file created

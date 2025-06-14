@@ -1,41 +1,50 @@
 # 00-Articles-Cloud
 
-## 概要
+## Overview
 
-このディレクトリはクラウドサービス、クラウドコンピューティング関連の記事を管理します。
+This directory manages articles related to cloud services and cloud computing.
 
-## 対象範囲
+## Target Scope
 
-- AWS、Azure、Google Cloud Platform などの主要クラウドプロバイダー
-- サーバーレス技術（AWS Lambda、Azure Functions、Cloud Functions 等）
-- クラウドネイティブ開発・アーキテクチャ
-- マイクロサービス・コンテナオーケストレーション
-- クラウドセキュリティ・コスト最適化
-- ハイブリッドクラウド・マルチクラウド戦略
+- Major cloud providers (AWS, Azure, Google Cloud Platform, etc.)
+- Serverless technologies (AWS Lambda, Azure Functions, Cloud Functions, etc.)
+- Cloud-native development and architecture
+- Microservices and container orchestration
+- Cloud security and cost optimization
+- Hybrid cloud and multi-cloud strategies
 
-## サブディレクトリ
+## Current Files
 
-現在、このディレクトリ直下に記事を配置していますが、記事数が増加した場合は以下のようなサブディレクトリの作成を検討します：
+This directory currently contains the following files:
 
-- AWS/ - Amazon Web Services 関連記事
-- Azure/ - Microsoft Azure 関連記事
-- GoogleCloud/ - Google Cloud Platform 関連記事
-- Serverless/ - サーバーレス技術全般
-- Architecture/ - クラウドアーキテクチャ設計
+- [[00-Articles-Cloud]] - This directory description file
 
-## 関連リンク
+_When new articles are added, they will be listed here with actual links to existing files._
 
-- [[00-Articles]]- 記事管理メインページ
+## Subdirectories
 
-## AI エージェント向け指示
+Currently, articles are placed directly in this directory. When the number of articles increases, consider creating subdirectories such as:
 
-このディレクトリに記事を追加する際は：
+- AWS/ - Amazon Web Services related articles
+- Azure/ - Microsoft Azure related articles
+- GoogleCloud/ - Google Cloud Platform related articles
+- Serverless/ - General serverless technology articles
+- Architecture/ - Cloud architecture design articles
 
-1. ファイル名は記事タイトルと同じにする
-2. クラウド関連の用語を抽出し、Words/Cloud/ に用語ファイルを作成
-3. 著者情報があれば Words/Authors/ に著者ファイルを作成
-4. 記事数が特定のサービス（AWS、Azure 等）で 5 件を超えた場合、サブディレクトリの作成を検討
+## Related Links
 
-## 更新履歴
+- [[00-Articles]] - Main articles management page
 
-- 2025-06-13: ディレクトリ説明ファイル作成
+## AI Agent Instructions
+
+When adding articles to this directory:
+
+1. Use the article title as the filename
+2. Extract cloud-related terms and create term files in Words/Cloud/
+3. Create author files in Words/Authors/ if author information is available
+4. Consider creating subdirectories when articles for specific services (AWS, Azure, etc.) exceed 5 files
+
+## Update History
+
+- 2025-06-15: Directory description file translated to English
+- 2025-06-13: Directory description file created

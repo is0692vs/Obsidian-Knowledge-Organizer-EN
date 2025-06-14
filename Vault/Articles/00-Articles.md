@@ -107,48 +107,49 @@ Main article content
 - [[00-FileIndex]] - Complete file list
 - Individual category overview files in each subdirectory
 
-## 🔄 動的ディレクトリ管理
+## 🔄 Dynamic Directory Management
 
-**AI エージェント向け指示**：既存のカテゴリに適合しない新しい分野の記事が蓄積された場合（3 件以上）、以下の手順で新しいディレクトリを作成してください：
+**Instructions for AI Agents**: When articles in new fields that don't fit existing categories accumulate (3 or more), create new directories following these steps:
 
-1. **このファイル（00-Articles.md）を更新**：新しいディレクトリの説明をカテゴリ構造セクションに追加
-2. **新しいディレクトリを作成**：Articles/{新ディレクトリ名}/
-3. **ディレクトリ説明ファイルを作成**：00-Articles-{新ディレクトリ名}.md（ルートディレクトリ Vault/直下）
-4. **README.md を更新**：プロジェクトルートの README.md に新しいカテゴリを反映
+1. **Update this file (00-Articles.md)**: Add new directory description to the Category Structure section
+2. **Create new directory**: Articles/{NewDirectoryName}/
+3. **Create directory description file**: 00-Articles-{NewDirectoryName}.md (in the new directory)
+4. **Update README.md**: Reflect new category in project root README.md
 
-**新規カテゴリの例**：
+**Examples of new categories**:
 
-- QuantumComputing/ （量子コンピューティング）
-- Blockchain/ （ブロックチェーン）
-- MachineLearning/ （機械学習・AI）
-- GameDevelopment/ （ゲーム開発）
-- Biotechnology/ （バイオテクノロジー）
+- QuantumComputing/ (Quantum Computing)
+- Blockchain/ (Blockchain)
+- MachineLearning/ (Machine Learning & AI)
+- GameDevelopment/ (Game Development)
+- Biotechnology/ (Biotechnology)
 
-## 🔄 AI エージェントによる自動処理
+## 🔄 Automated Processing by AI Agents
 
-このフォルダの記事は、AI エージェントが以下の処理を自動実行します：
+Articles in this folder are automatically processed by AI agents for:
 
-1. **記事の分析**: 内容を解析し、重要な用語を特定
-2. **用語抽出**: 技術用語、人名、サービス名などを抽出
-3. **分類処理**: 適切な Words カテゴリに振り分け
-4. **リンク生成**: Obsidian の双方向リンクで関連性を構築
+1. **Article Analysis**: Analyze content and identify important terms
+2. **Term Extraction**: Extract technical terms, names, service names, etc.
+3. **Classification**: Categorize into appropriate Words categories
+4. **Link Generation**: Build relationships with Obsidian bidirectional links
 
-## 📝 記事追加時の手順
+## 📝 Procedure for Adding Articles
 
-1. Obsidian Web Clipper で記事をクリップ
-2. 適切なカテゴリフォルダに保存
-3. AI エージェントに処理を依頼：
+1. Clip articles using Obsidian Web Clipper
+2. Save to appropriate category folder
+3. Request processing from AI Agent:
+
+   ```text
+   Please analyze Articles/[Category]/[ArticleName].md and
+   extract and organize terms according to the AI Manual.
    ```
-   Articles/[カテゴリ]/[記事名].md を分析して、
-   AI_マニュアル.mdに従って用語を抽出し、整理してください。
-   ```
 
-## ⚠️ 注意事項
+## ⚠️ Precautions
 
-- 著作権に配慮し、必要に応じて要約や引用形式で保存
-- 記事のソース URL、取得日時を明記
-- 個人情報や機密情報を含む内容は避ける
+- Consider copyright and save as summaries or quotes when necessary
+- Include article source URL and acquisition date/time
+- Avoid content containing personal or confidential information
 
 ---
 
-このフォルダは知識ベース構築の入力点として機能し、AI エージェントと連携して自動的に構造化された知識へと変換されます。
+This folder functions as an input point for knowledge base construction and automatically converts to structured knowledge in cooperation with AI agents.

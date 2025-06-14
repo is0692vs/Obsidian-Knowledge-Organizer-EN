@@ -1,52 +1,61 @@
 # 00-Words-Finance
 
-## 概要
+## Overview
 
-このディレクトリは金融、投資、経済関連の用語を管理します。
+This directory manages terms related to finance, investment, and economics.
 
-## 対象範囲
+## Target Scope
 
-- 投資戦略・手法（パッシブ投資、アクティブ投資等）
-- 金融商品（株式、債券、ETF、仮想通貨等）
-- 経済指標・マクロ経済学用語
-- フィンテック技術・サービス
-- トレーディング技術・アルゴリズム
-- リスク管理・ポートフォリオ理論
+- Investment strategies and methods (passive investing, active investing, etc.)
+- Financial instruments (stocks, bonds, ETFs, cryptocurrency, etc.)
+- Economic indicators and macroeconomic terms
+- Fintech technologies and services
+- Trading technologies and algorithms
+- Risk management and portfolio theory
 
-## サブディレクトリ
+## Current Files
 
-金融関連用語が増加した場合は以下のようなサブディレクトリの作成を検討します：
+This directory currently contains the following files:
 
-- Investment/ - 投資戦略・手法関連用語
-- Instruments/ - 金融商品関連用語
-- Cryptocurrency/ - 暗号通貨・ブロックチェーン関連用語
-- Economics/ - 経済指標・理論関連用語
-- Fintech/ - フィンテック技術・サービス関連用語
+- [[00-Words-Finance]] - This directory description file
 
-## 用語ファイルの構造
+_When new term files are added, they will be listed here with actual links to existing files._
 
-各金融用語ファイルには以下の情報を含めます：
+## Subdirectories
 
-- 基本定義・概念説明
-- 具体的な適用例・事例
-- リスク・注意点
-- 関連する金融商品・戦略
-- 規制・法的側面（該当する場合）
+When finance-related terms increase, consider creating subdirectories such as:
 
-## 関連リンク
+- Investment/ - Investment strategy and method related terms
+- Instruments/ - Financial instrument related terms
+- Cryptocurrency/ - Cryptocurrency and blockchain related terms
+- Economics/ - Economic indicator and theory related terms
+- Fintech/ - Fintech technology and service related terms
 
-- [[00-Words]] - 用語集メインページ
+## Term File Structure
 
-## AI エージェント向け指示
+Each finance term file includes the following information:
 
-このディレクトリに用語ファイルを追加する際は：
+- Basic definition and concept explanation
+- Specific application examples and cases
+- Risks and precautions
+- Related financial instruments and strategies
+- Regulatory and legal aspects (when applicable)
 
-1. 正式な金融用語を使用し、俗語・略語は併記程度に留める
-2. 投資戦略については具体的な手法名を正確に記録
-3. リスクに関する情報は必ず含める
-4. 法的・規制面の情報は概要のみ（詳細は避ける）
-5. 同一カテゴリの用語が 5 件を超えた場合、サブディレクトリ化を検討
+## Related Links
 
-## 更新履歴
+- [[00-Words]] - Main terms collection page
 
-- 2025-06-13: ディレクトリ説明ファイル作成
+## AI Agent Instructions
+
+When adding term files to this directory:
+
+1. Use official financial terminology, limit slang and abbreviations to supplementary mentions
+2. Record specific method names accurately for investment strategies
+3. Always include risk-related information
+4. Include only general overview of legal and regulatory information (avoid details)
+5. Consider subdirectory creation when terms in the same category exceed 5 files
+
+## Update History
+
+- 2025-06-15: Directory description file translated to English
+- 2025-06-13: Directory description file created

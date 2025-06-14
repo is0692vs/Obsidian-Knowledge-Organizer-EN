@@ -1,53 +1,55 @@
-# 🔍 06\_重複チェックと表記揺れ対応
+# 🔍 06_Duplication Check and Notation Variation Handling
 
-## 重複チェック手順
+## Duplication Check Procedure
 
 ```text
-【必須チェック項目】
-1. semantic_search で記事タイトル・主要キーワード検索
-2. Articles/とClippings/で類似記事確認
-3. 同じ著者の既存記事確認
-4. Words/で同一・類似用語確認
+【Required Check Items】
+1. Use semantic_search to search for article titles and main keywords
+2. Check for similar articles in Articles/ and Clippings/
+3. Check for existing articles by the same author
+4. Check for identical or similar terms in Words/
 ```
 
-## 表記揺れ対応原則
+## Notation Variation Response Principles
 
-### 優先順位
+### Priority Order
 
-1. **混同回避性（最優先）**：他概念と混同されない表記
-2. **キャッチー性**：覚えやすく使いやすい表記
-3. **公式名称性**：正式名称・公式表記
+1. **Confusion Avoidance (Highest Priority)**: Notation that won't be confused with other concepts
+2. **Memorability**: Easy to remember and use notation
+3. **Official Name**: Official names and formal notation
 
-### 対応方法
+### Response Method
 
-- 主要表記：詳細な説明内容を記載
-- 副次表記：簡潔なリダイレクト形式に変更
+- Primary notation: Include detailed explanatory content
+- Secondary notation: Change to concise redirect format
 
 ```markdown
 # Microsoft Azure
 
-[[Azure]]と同義です。Microsoft が提供するクラウドコンピューティングプラットフォーム。
+Same as ((Azure)). Cloud computing platform provided by Microsoft.
 
-詳細は[[Azure]]を参照してください。
+Please refer to ((Azure)) for details.
 
-## 関連概念
+## Related Concepts
 
-- [[Azure]] - 主要記事
+- ((Azure)) - Main article
 ```
 
-## 表記揺れ統一ルール
+## Notation Variation Unification Rules
 
-同じ概念の表記違い（例：OpenAI API vs OpenAI-API）は以下で統一：
+For different notations of the same concept (e.g., OpenAI API vs OpenAI-API), unify as follows:
 
-1. **メインファイル選定**：最も一般的・完全な表記を採用
-2. **サブファイル作成**：表記揺れファイルは簡潔なリダイレクト記述
+1. **Main File Selection**: Adopt the most common and complete notation
+2. **Sub-file Creation**: Notation variation files should have concise redirect descriptions
 
 ```markdown
 # OpenAI-API
 
-[[OpenAI API]]と同義です。OpenAI 社が提供する API サービス。
+Same as ((OpenAI API)). API service provided by OpenAI.
 
-詳細は[[OpenAI API]]を参照してください。
+Please refer to ((OpenAI API)) for details.
 ```
 
-3. **統一原則**：スペース区切り > ハイフン区切り > アンダースコア区切り
+3. **Unification Principle**: Space separation > Hyphen separation > Underscore separation
+
+**Note**: In examples above, we use (()) to avoid creating broken links in documentation. When creating actual content, use [[]] syntax for links to existing files.

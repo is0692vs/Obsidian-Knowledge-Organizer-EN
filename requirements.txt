@@ -1,17 +1,17 @@
 # Obsidian Knowledge Framework - Python Requirements
 # 
-# このプロジェクトで使用するPythonスクリプト（link_checker.py等）の依存関係
+# Dependencies for Python scripts used in this project (link_checker.py etc.)
 # 
-# 現在のスクリプトは標準ライブラリのみを使用しているため、
-# 追加のパッケージは不要ですが、将来の拡張に備えてファイルを用意しています。
+# Current scripts use only standard library, so no additional packages are required,
+# but this file is prepared for future extensions.
 
-# 将来の拡張で使用予定のライブラリ（コメントアウト状態）:
+# Libraries planned for future extensions (commented out):
 # requests>=2.31.0      # HTTP requests for web scraping
 # beautifulsoup4>=4.12.0 # HTML parsing
 # markdown>=3.5.0       # Markdown processing
 # pyyaml>=6.0.0         # YAML configuration files
 
-# 開発・テスト用（オプション）:
+# Development & testing (optional):
 # pytest>=7.4.0        # Testing framework
 # black>=23.0.0         # Code formatting
 # flake8>=6.0.0         # Code linting

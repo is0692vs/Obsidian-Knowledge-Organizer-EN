@@ -1,102 +1,102 @@
-# 🔗 09\_リンク作成基準とガイドライン
+# 🔗 09_Link Creation Criteria and Guidelines
 
-## リンク作成の実践ガイド（作業フロー）
+## Link Creation Practical Guide (Workflow)
 
-### Step 1: 用語特定・既存ファイル確認フェーズ
-
-```text
-【用語抽出・確認の手順】
-1. 記事を通読し、技術用語をマーク
-2. 著者名・サービス名を特定
-3. 重要な概念・キーワードを抽出
-4. 【重要】スラッシュ含み用語の置き換え処理：
-   - 「CI/CD」→「CI_CD」に変換
-   - 「HTML/CSS」→「HTML_CSS」に変換
-   - 「OS/2」→「OS_2」に変換
-   - この段階で用語表記を統一してから次の処理へ
-5. 【重要】各用語について file_search で既存ファイル確認
-5. 【重要】過度な細分化チェック：
-   - API.mdが存在 → 「API設計」「API管理」等ではなく[[API]]を使用
-   - Docker.mdが存在 → 「Docker基本」「Docker設定」等ではなく[[Docker]]を使用
-   - 既存ファイルで扱える範囲の概念は新規作成しない
-6. 【重要】表記揺れの種類別検索戦略：
-   - 【ルールベース検出】文字列パターンによる表記揺れ：
-     * スペース・ハイフン："OpenAI API" → file_search("OpenAI*API")
-     * 大文字小文字："JavaScript" → grep_search("javascript", isRegexp=false)
-     * 省略展開："API" → file_search("Application*Programming*Interface")
-   - 【意味的検出】文脈理解が必要な表記揺れ：
-     * 日英混在："AI" → semantic_search("人工知能 機械学習")
-     * 略称正式："Azure" → semantic_search("Microsoft Azure MS Azure")
-     * 同義語："フレームワーク" → semantic_search("ライブラリ framework library")
-7. 同一ディレクトリ内の類似用語を semantic_search で確認
-8. リンク密度を考慮して優先度付け
-```
-
-### Step 2: 表記統一・リンク名決定フェーズ
+### Step 1: Term Identification and Existing File Verification Phase
 
 ```text
-【表記統一・リンク名の決定手順】
-1. 既存ファイルが見つかった場合：
-   → 既存ファイル名に表記を統一
-   → 本文中の表記を既存リンク名に変更
-   → 修飾語付きでも核となる概念が同じなら既存ファイルを使用
-2. 複数の類似ファイルが見つかった場合：
-   → 最も一般的・短い表記を主要ファイルとして選定
-   → 他のファイルをリダイレクト形式に変更
-3. 既存ファイルがない場合：
-   → 修飾語を除いた核概念で再検索
-   → 包括的なファイルが存在するなら新規作成を避ける
-   → 真に新しい概念の場合のみ新規作成
-4. 最終的なリンク名の決定
+【Term Extraction and Verification Procedure】
+1. Read through articles and mark technical terms
+2. Identify author names and service names
+3. Extract important concepts and keywords
+4. 【Important】Process replacement for terms containing slashes:
+   - Convert "CI/CD" → "CI_CD"
+   - Convert "HTML/CSS" → "HTML_CSS"
+   - Convert "OS/2" → "OS_2"
+   - Unify term notation at this stage before proceeding
+5. 【Important】Check existing files using file_search for each term
+5. 【Important】Check for excessive fragmentation:
+   - If API.md exists → Use ((API)) instead of "API Design", "API Management", etc.
+   - If Docker.md exists → Use ((Docker)) instead of "Docker Basics", "Docker Configuration", etc.
+   - Don't create new files for concepts that can be covered by existing files
+6. 【Important】Type-specific search strategies for notation variations:
+   - 【Rule-based Detection】Notation variations by string patterns:
+     * Space/hyphen: "OpenAI API" → file_search("OpenAI*API")
+     * Case: "JavaScript" → grep_search("javascript", isRegexp=false)
+     * Abbreviation/expansion: "API" → file_search("Application*Programming*Interface")
+   - 【Semantic Detection】Notation variations requiring contextual understanding:
+     * Japanese/English mix: "AI" → semantic_search("人工知能 機械学習")
+     * Abbreviation/formal: "Azure" → semantic_search("Microsoft Azure MS Azure")
+     * Synonyms: "フレームワーク" → semantic_search("ライブラリ framework library")
+7. Check similar terms in the same directory using semantic_search
+8. Prioritize considering link density
 ```
 
-### Step 3: リンク作成実行フェーズ
+### Step 2: Notation Unification and Link Name Decision Phase
 
 ```text
-【リンク作成の実行手順】
-1. file_searchで対象ファイルの存在確認
-2. 存在しない場合は用語ファイル作成
-3. 【重要】スラッシュを_に置換してリンク挿入：
-   - 本文「CI/CD」→ [[CI_CD]]
-   - 本文「HTML/CSS」→ [[HTML_CSS]]
-   - 本文「OS/2」→ [[OS_2]]
-4. リンク切れチェック実行
-5. 次の用語へ進む
+【Notation Unification and Link Name Decision Procedure】
+1. When existing files are found:
+   → Unify notation to existing file names
+   → Change notation in text to existing link names
+   → Use existing files even with modifiers if the core concept is the same
+2. When multiple similar files are found:
+   → Select the most general and shortest notation as the main file
+   → Change other files to redirect format
+3. When no existing files are found:
+   → Re-search with core concept excluding modifiers
+   → Avoid creating new files if comprehensive files exist
+   → Create new files only for truly new concepts
+4. Final link name decision
 ```
 
-## リンク作成の基本原則
-
-### 1. リンク作成の判断基準
-
-#### 【最優先】既存ファイル積極活用ルール
-
-**既存の.md ファイルが存在する用語は必ずリンク化：**
+### Step 3: Link Creation Execution Phase
 
 ```text
-【既存ファイル確認・リンク化手順】
-1. file_searchで用語の存在確認を必ず実行
-2. 【重要】表記揺れ検出のための追加検索：
-   - スペース・ハイフンを含む用語の場合、それらを除いた検索も実行
-   - 例：「OpenAI API」→ file_search("OpenAI*API") または grep_search("OpenAI.*API", isRegexp=true)
-   - 例：「React-Router」→ file_search("React*Router") または grep_search("React.*Router", isRegexp=true)
-3. 存在する場合は、表記を問わず積極的にリンク化
-4. 表記揺れがある場合は統一処理を実行
-5. 同一意味の複数ファイルがある場合は統合処理を実行
-
-【重要】過度な概念細分化の回避：
-- 例えば，API.mdが存在する場合は[[API設計]]ではなく[[API]]を使用
-- 既存ファイルの範囲内で扱えるトピックは新規作成せず既存活用
-- 「設計」「管理」「基本」等の修飾語付きリンクを避ける
-- 包括的な概念ファイルの中で詳細を扱う方針を優先
+【Link Creation Execution Procedure】
+1. Check target file existence using file_search
+2. Create term file if it doesn't exist
+3. 【Important】Replace slashes with _ and insert links:
+   - Text "CI/CD" → ((CI_CD))
+   - Text "HTML/CSS" → ((HTML_CSS))
+   - Text "OS/2" → ((OS_2))
+4. Execute broken link check
+5. Proceed to next term
 ```
 
-#### 【重要】表記揺れの種類と検出方法
+## Basic Principles of Link Creation
 
-表記揺れには大きく分けて 2 つのタイプがあり、それぞれ異なる検出方法が必要です：
+### 1. Link Creation Judgment Criteria
 
-##### 🔍 **1. ルールベース検出可能な表記揺れ**
+#### 【Highest Priority】Active Utilization of Existing Files Rule
 
-**特徴：文字列パターンで機械的に検出可能**
+**Terms with existing .md files must be linked:**
+
+```text
+【Existing File Verification and Linking Procedure】
+1. Always execute file_search to verify term existence
+2. 【Important】Additional search for notation variation detection:
+   - For terms with spaces/hyphens, also search without them
+   - Example: "OpenAI API" → file_search("OpenAI*API") or grep_search("OpenAI.*API", isRegexp=true)
+   - Example: "React-Router" → file_search("React*Router") or grep_search("React.*Router", isRegexp=true)
+3. If exists, actively link regardless of notation
+4. Execute unification process if notation variations exist
+5. Execute integration process if multiple files with same meaning exist
+
+【Important】Avoid excessive concept fragmentation:
+- For example, if API.md exists, use ((API)) instead of ((API Design))
+- Don't create new files for topics that can be handled within existing file scope
+- Avoid modified links with "Design", "Management", "Basics", etc.
+- Prioritize handling details within comprehensive concept files
+```
+
+#### 【Important】Types of Notation Variations and Detection Methods
+
+Notation variations can be broadly divided into two types, each requiring different detection methods:
+
+##### 🔍 **1. Rule-based Detectable Notation Variations**
+
+**Features: Mechanically detectable by string patterns**
 
 ```text
 【ルールベース表記揺れの例】
@@ -494,3 +494,12 @@ A: 両方の結果を総合して AI エージェントが最終判断。より�
      - semantic_search()での意味的類似用語検索
      - 日英混在・略称正式名称・同義語の幅広い検出
    - 公式ドキュメントの表記確認を最終判断基準とする
+
+---
+
+**Important Note for AI Agents**:
+
+- In this documentation, we use (()) for examples to avoid creating broken links
+- When creating actual files and linking to existing files, always use [[]] syntax
+- Only create [[]] links when the target file actually exists
+- Never create [[]] links to non-existent example files

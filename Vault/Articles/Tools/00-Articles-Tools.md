@@ -1,42 +1,55 @@
 # 00-Articles-Tools
 
-## 概要
+## Overview
 
-このディレクトリは開発ツール、ソフトウェア関連の記事を管理します。
+This directory manages articles related to development tools and software.
 
-## 対象範囲
+## Target Scope
 
-- IDE・エディタ（VS Code、IntelliJ、Vim 等）
-- ビルド・デプロイツール
-- バージョン管理システム（Git、GitHub、GitLab 等）
-- AI ツール・AI 支援開発
-- 生産性向上ツール・ワークフロー改善
-- 開発支援サービス・プラットフォーム
+- IDEs and editors (VS Code, IntelliJ, Vim, etc.)
+- Build and deployment tools
+- Version control systems (Git, GitHub, GitLab, etc.)
+- AI tools and AI-assisted development
+- Productivity tools and workflow improvement
+- Development support services and platforms
 
-## サブディレクトリ
+## Current Files
 
-現在、このディレクトリ直下に記事を配置していますが、記事数が増加した場合は以下のようなサブディレクトリの作成を検討します：
+This directory currently contains the following files:
 
-- IDEs/ - IDE・エディタ関連記事
-- AI/ - AI ツール・AI 支援開発関連記事
-- Git/ - Git・バージョン管理関連記事
-- Build/ - ビルド・デプロイツール関連記事
-- Productivity/ - 生産性向上ツール関連記事
-- Platforms/ - 開発プラットフォーム関連記事
+- [[00-Articles-Tools]] - This directory description file
 
-## 関連リンク
+_When new articles are added, they will be listed here with actual links to existing files._
 
-- [[00-Articles]] - 記事管理メインページ
+## Subdirectories
 
-## AI エージェント向け指示
+Currently, articles are placed directly in this directory. When the number of articles increases, consider creating subdirectories such as:
 
-このディレクトリに記事を追加する際は：
+- IDEs/ - IDE and editor related articles
+- AI/ - AI tools and AI-assisted development related articles
+- Git/ - Git and version control related articles
+- Build/ - Build and deployment tool related articles
+- Productivity/ - Productivity tool related articles
+- Platforms/ - Development platform related articles
 
-1. ファイル名は記事タイトルと同じにする
-2. ツール・サービス名を抽出し、Words/Tools/ に用語ファイルを作成
-3. 著者情報があれば Words/Authors/ に著者ファイルを作成
-4. AI ツール関連は特に詳細な用語抽出を実施
-5. 記事数が特定のカテゴリ（AI、IDE 等）で 5 件を超えた場合、サブディレクトリの作成を検討
+## Related Links
+
+- [[00-Articles]] - Main articles management page
+
+## AI Agent Instructions
+
+When adding articles to this directory:
+
+1. Use the article title as the filename
+2. Extract tool and service names and create term files in Words/Tools/
+3. Create author files in Words/Authors/ if author information is available
+4. Implement detailed term extraction especially for AI tool related articles
+5. Consider creating subdirectories when articles for specific categories (AI, IDE, etc.) exceed 5 files
+
+## Update History
+
+- 2025-06-15: Directory description file translated to English
+- 2025-06-13: Directory description file created
 
 ## 更新履歴
 

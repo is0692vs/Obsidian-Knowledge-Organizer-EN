@@ -1,43 +1,52 @@
 # 00-Articles-Infrastructure
 
-## 概要
+## Overview
 
-このディレクトリは IT インフラ、システム基盤関連の記事を管理します。
+This directory manages articles related to IT infrastructure and system foundations.
 
-## 対象範囲
+## Target Scope
 
-- コンテナ技術（Docker、Kubernetes、Podman）
-- ネットワーク技術・プロトコル
-- セキュリティ・認証・認可
-- データベース・ストレージ
-- 監視・ログ管理・運用
-- CI/CD・DevOps・SRE
+- Container technologies (Docker, Kubernetes, Podman)
+- Networking technologies and protocols
+- Security, authentication, and authorization
+- Databases and storage
+- Monitoring, log management, and operations
+- CI/CD, DevOps, and SRE
 
-## サブディレクトリ
+## Current Files
 
-現在、このディレクトリ直下に記事を配置していますが、記事数が増加した場合は以下のようなサブディレクトリの作成を検討します：
+This directory currently contains the following files:
 
-- Containers/ - Docker、Kubernetes 等コンテナ関連記事
-- Networking/ - ネットワーク技術関連記事
-- Security/ - セキュリティ・認証関連記事
-- Database/ - データベース・ストレージ関連記事
-- Monitoring/ - 監視・運用関連記事
-- DevOps/ - CI/CD・DevOps 関連記事
+- [[00-Articles-Infrastructure]] - This directory description file
 
-## 関連リンク
+_When new articles are added, they will be listed here with actual links to existing files._
 
-- [[00-Articles]] - 記事管理メインページ
+## Subdirectories
 
-## AI エージェント向け指示
+Currently, articles are placed directly in this directory. When the number of articles increases, consider creating subdirectories such as:
 
-このディレクトリに記事を追加する際は：
+- Containers/ - Docker, Kubernetes and other container related articles
+- Networking/ - Network technology related articles
+- Security/ - Security and authentication related articles
+- Database/ - Database and storage related articles
+- Monitoring/ - Monitoring and operations related articles
+- DevOps/ - CI/CD and DevOps related articles
 
-1. ファイル名は記事タイトルと同じにする
-2. インフラ・システム関連の用語を抽出し、Words/Infrastructure/ に用語ファイルを作成
-3. 著者情報があれば Words/Authors/ に著者ファイルを作成
-4. 技術ツール・製品名は Words/Tools/ にも分類を検討
-5. 記事数が特定の分野（コンテナ、セキュリティ等）で 5 件を超えた場合、サブディレクトリの作成を検討
+## Related Links
 
-## 更新履歴
+- [[00-Articles]] - Main articles management page
 
-- 2025-06-13: ディレクトリ説明ファイル作成
+## AI Agent Instructions
+
+When adding articles to this directory:
+
+1. Use the article title as the filename
+2. Extract infrastructure and system related terms and create term files in Words/Infrastructure/
+3. Create author files in Words/Authors/ if author information is available
+4. Consider classifying technical tools and product names in Words/Tools/ as well
+5. Consider creating subdirectories when articles for specific fields (containers, security, etc.) exceed 5 files
+
+## Update History
+
+- 2025-06-15: Directory description file translated to English
+- 2025-06-13: Directory description file created
