@@ -58,26 +58,44 @@
 ### 1. Problem Identification
 
 ```bash
-# Batch detection of broken links
+# MANDATORY: Batch detection of broken links with Python
 python link_checker.py
 
-# Pattern confirmation with grep search
+# Supplementary: Pattern confirmation with grep search
 grep_search "\\[\\[.*\\]\\]"
 ```
 
+**CRITICAL**: Always use `python link_checker.py` as the primary method for broken link detection. This tool provides:
+
+- Frequency-sorted broken link ranking
+- Reference count for each broken link
+- Priority order for file creation
+
 ### 2. Problem Analysis
 
-- Understand the count and types of broken links
+- **Primary focus**: Reference count from Python tool output
+- **Creation priority**: Start with highest frequency broken links
+- **Batch planning**: Group 10-15 files per creation batch
 - Identify notation variation patterns
-- Determine priority levels
+- Determine category placement for each file
 
 ### 3. Repair Execution
 
-- Repair sequentially from high priority
+- **MANDATORY**: Create files in frequency order (highest reference count first)
+- **Execute python link_checker.py before and after each batch**
 - Always execute verification after repair
 - Record progress status
 
 ### 4. Final Verification
+
+```bash
+# MANDATORY final check
+python link_checker.py
+
+# Supplementary verification
+grep_search "\\[\\[.*\\]\\]"
+semantic_search "broken link"
+```
 
 - Execute all check items
 - Report repair results

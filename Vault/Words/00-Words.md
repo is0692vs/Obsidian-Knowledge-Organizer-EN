@@ -157,7 +157,10 @@ More detailed explanation and technical content
 
 **Important Note for AI Agents**:
 
-- In this documentation, we use (()) for examples to avoid creating broken links
-- When creating actual files and linking to existing files, always use [[]] syntax
-- Only create [[]] links when the target file actually exists
-- Never create [[]] links to non-existent example files like ((Sample Article)) or ((Example Term))
+- **In Vault documentation**: Use (()) for examples to avoid creating broken links in the knowledge base
+- **In Instructions/ directory**: ((Sample)) links are not recognized by Obsidian, so sample format can be used freely for examples and templates
+- **When creating actual files**: Always use [[]] syntax when linking to existing files within the Vault
+- **Link verification**: Only create [[]] links when the target file actually exists in the Vault
+- **Directory-specific rules**:
+  - Vault/ → Use (()) for examples, [[]] only for real files
+  - Instructions/ → Can use [[]] freely for examples since they're not processed by Obsidian

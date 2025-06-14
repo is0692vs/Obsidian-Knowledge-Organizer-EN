@@ -1,180 +1,197 @@
-# 🚨 02\_リンク切れ管理
+# 🚨 02_Link Management
 
-## 最重要原則：リンク切れゼロの維持
+## Most Important Principle: Maintaining Zero Broken Links
 
-### 【絶対遵守】[[]]リンク作成時の必須プロセス
+### 【Absolute Compliance】Mandatory Process When Creating [[]] Links
 
-**すべての[[]]リンク作成時に以下を必ず実行：**
-
-```text
-【必須手順】
-1. 【重要】リンク名にスラッシュが含まれる場合は_に置換
-   例：[[CI/CD]] → [[CI_CD]]、[[HTML/CSS]] → [[HTML_CSS]]
-   理由：Obsidianがスラッシュをディレクトリ区切りと判定するため
-2. file_search ツールで対応ファイルの存在確認
-3. 存在しない場合は即座作成完了後に[[]]リンクを追加
-4. 作成したファイル内で新たな[[]]リンクを使用する場合は、再度1-3を繰り返す
-5. 中間チェック：grep_search でリンク切れがないかチェック
-6. 最終確認：semantic_search でリンク切れがないかダブルチェック
-```
-
-### 【強化版】リンク切れチェック頻度
-
-**作業プロセス中の必須チェックポイント：**
+**Always execute the following when creating [[]] links:**
 
 ```text
-【リンク切れチェック実行タイミング】
-1. 新規ファイル作成直後
-2. [[]]リンク追加直後（1つ追加するごと）
-3. ファイル編集完了後
-4. インデックス更新後
-5. 作業セクション完了後
-6. 全作業完了前の最終確認（2回実行）
-
-【使用ツール】
-- grep_search: "\\[\\[.*\\]\\]" パターンでリンク検索
-- file_search: 個別ファイル存在確認
-- semantic_search: リンク整合性の総合確認
+【Required Steps】
+1. 【Important】If link name contains slashes, replace with underscore
+   Example: [[CI/CD]] → [[CI_CD]], [[HTML/CSS]] → [[HTML_CSS]]
+   Reason: Obsidian interprets slashes as directory separators
+2. Use file_search tool to verify corresponding file existence
+3. If file doesn't exist, create it immediately before adding [[]] link
+4. If new [[]] links are used within created file, repeat steps 1-3
+5. Intermediate check: Use grep_search to check for broken links
+6. Final verification: Double-check with semantic_search for broken links
 ```
 
-### 【新規追加】リンク切れゼロ保証プロトコル
+### 【Enhanced】Broken Link Check Frequency
 
-**すべての作業で以下を厳格遵守：**
+**Mandatory checkpoints during work process:**
 
 ```text
-【ゼロトレランス・ルール】
-1. 【重要】リンク名にスラッシュが含まれる場合は_に置換してからリンク作成
-   例：[[CI/CD]] → [[CI_CD]]として処理
-2. [[]]リンクを書く前に必ずfile_searchで存在確認
-3. 存在しない場合は作業を一時停止してファイル作成
-4. 1つのファイルに複数[[]]リンクがある場合、1つずつ順番に確認・作成
-5. ファイル作成後は即座にgrep_searchでリンク切れチェック
-6. エラーが1つでも検出された場合は全て修正完了まで次の作業禁止
+【Broken Link Check Execution Timing】
+1. Immediately after creating new file
+2. Immediately after adding [[]] link (after each addition)
+3. After completing file editing
+4. After updating index
+5. After completing work section
+6. Final verification before completing all work (execute 2 times)
 
-【多段階検証システム】
-- 第1段階：file_searchによる個別ファイル確認
-- 第2段階：grep_searchによるリンクパターン検索
-- 第3段階：semantic_searchによる総合整合性確認
-- 第4段階：ファイル構造インデックスとの照合確認
+【Tools to Use】
+- grep_search: Search links with "\\[\\[.*\\]\\]" pattern
+- file_search: Individual file existence verification
+- semantic_search: Comprehensive link integrity verification
 ```
 
-## 必須：Python ツールによるリンク切れ検出
+### 【Newly Added】Zero Broken Links Guarantee Protocol
 
-**すべてのリンク切れ修復作業は以下の Python スクリプト実行から開始：**
+**Strictly comply with the following in all work:**
+
+```text
+【Zero Tolerance Rule】
+1. 【Important】If link name contains slashes, replace with underscore before creating link
+   Example: Process [[CI/CD]] → [[CI_CD]]
+2. Always verify existence with file_search before writing [[]] link
+3. If file doesn't exist, pause work and create file
+4. If multiple [[]] links exist in one file, verify and create one by one in order
+5. After file creation, immediately check for broken links with grep_search
+6. If even one error is detected, prohibit next work until all are fixed
+
+【Multi-stage Verification System】
+- Stage 1: Individual file verification with file_search
+- Stage 2: Link pattern search with grep_search
+- Stage 3: Comprehensive integrity verification with semantic_search
+- Stage 4: Cross-verification with file structure index
+```
+
+## **MANDATORY: Broken Link Detection with Python Tools**
+
+**All broken link repair work MUST start by executing the following Python script:**
 
 ```bash
-# 1. リンク切れ一括検出（必須実行）
+# 1. Batch broken link detection (MANDATORY EXECUTION)
 python link_checker.py
 
-# 出力解釈：
-# - "セッション終了条件達成" = リンク切れ0件（作業完了）
-# - "セッション終了条件未達成" = リンク切れ有り（修復が必要）
-# - "AIエージェント向け：作成すべきファイルリスト (X件)" = 作成すべきファイル一覧
-# - 参照回数による優先度表示（多い順に作成推奨）
+# Output interpretation:
+# - "Broken links: 0 items" = 0 broken links (work completed)
+# - "Broken links: X items" = X broken links exist (repair needed)
+# - "Broken link ranking (by frequency)" = File creation priority list
+# - Reference count priority display (create in order of highest frequency)
 
-# 2. 推奨作成順序（参照回数順）
-# - OpenAI API (23回) → Words/Tools/OpenAI API.md
-# - Azure (10回) → Words/Cloud/Azure.md
-# - 自動化 (6回) → Words/Programming/自動化.md
-# - スクリーニング (5回) → Words/Finance/スクリーニング.md
+# 2. Recommended creation order (by reference count)
+# - OpenAI API (23 times) → Words/Tools/OpenAI API.md
+# - Azure (10 times) → Words/Cloud/Azure.md
+# - Automation (6 times) → Words/Programming/Automation.md
+# - Screening (5 times) → Words/Finance/Screening.md
 ```
 
-**【効率化】バッチ作業推奨手順：**
+**【CRITICAL RULE】Python Tool Usage is MANDATORY for Link Checking:**
 
-1. **python link_checker.py 実行** → 作成すべきファイル一覧を取得
-2. **10-15 件まとめて作成** → 頻出度の高い順から一括作成
-3. **表記揺れチェック・統一** → 類似名ファイルの統合・リダイレクト
-4. **再度 python link_checker.py 実行** → 進捗確認・残件把握
-5. **次のバッチ作成** → セッション終了条件達成まで繰り返し
+- **NEVER** use only grep_search or semantic_search for broken link detection
+- **ALWAYS** execute `python link_checker.py` as the primary method
+- **ALWAYS** create files in order of reference frequency (highest first)
+- Other tools are for supplementary verification only
 
-## バッチ作業プロトコル（10 件/セット）
+**【Efficiency】Recommended Batch Work Procedure:**
 
-### Phase 1: 準備・計画
+1. **Execute python link_checker.py** → Get list of files to create
+2. **Create 10-15 files in batch** → Bulk creation in order of high frequency
+3. **Check and unify notation variations** → Merge/redirect similar name files
+4. **Execute python link_checker.py again** → Confirm progress and remaining tasks
+5. **Next batch creation** → Repeat until session termination condition achieved
+
+## Batch Work Protocol (10 files/set)
+
+### Phase 1: Preparation and Planning
 
 ```bash
-# 1. 現状把握（必須実行）
+# 1. Current status assessment (MANDATORY EXECUTION)
 python link_checker.py
 
-# 出力から以下を確認：
-# - 総リンク切れ件数
-# - 優先度別ファイルリスト（参照回数順）
-# - 表記揺れ候補
+# Confirm from output:
+# - Total broken link count
+# - Priority file list (by reference count)
+# - Notation variation candidates
 ```
 
-### Phase 2: バッチ実行（10 件ずつ）
+### Phase 2: Batch Execution (10 files at a time)
 
 ```text
-【1セットの作業範囲】
-- 優先度上位10件を選定
-- 各ファイルの適切な配置先ディレクトリを決定
-- 10件を一括作成（並行作業推奨）
-- 作成時に新しい[[]]リンクが生まれた場合は一時リスト化（次セットで対応）
+【1 Set Work Scope】
+- Select top 10 priority items
+- Determine appropriate placement directory for each file
+- Bulk create 10 files (parallel work recommended)
+- If new [[]] links are created during creation, temporarily list them (handle in next set)
 
-【ファイル作成時の品質基準】
-- 最低100字以上の具体的内容
-- 2-3個の関連[[]]リンク含有
-- カテゴリ適合性の確保
-- 基本的なMarkdown構造（見出し、リスト等）
+【Quality Standards for File Creation】
+- Minimum 100 characters of specific content
+- Include 2-3 related [[]] links
+- Ensure category compatibility
+- Basic Markdown structure (headings, lists, etc.)
 ```
 
-### Phase 3: 検証・修正
+### Phase 3: Verification and Correction
 
 ```bash
-# 2. バッチ作成後の検証（必須実行）
+# 2. Verification after batch creation (MANDATORY EXECUTION)
 python link_checker.py
 
-# 確認項目：
-# - リンク切れ件数の減少確認
-# - 新規生成された[[]]リンクの把握
-# - 表記揺れパターンの検出
+# Confirmation items:
+# - Confirm reduction in broken link count
+# - Understand newly generated [[]] links
+# - Detect notation variation patterns
 ```
 
-### Phase 4: 表記揺れ統一
+### Phase 4: Notation Variation Unification
 
 ```text
-【統一作業の実行】
-1. 同一概念の異表記を検出（例：「CI/CD」「CI-CD」「CI CD」）
-2. 最適表記を選定（一般性、完全性、可読性で判断）
-3. サブファイル作成（リダイレクト記述）
-4. メインファイルにエイリアス情報追加
+【Unification Work Execution】
+1. Detect different notations of same concept (e.g., "CI/CD", "CI-CD", "CI CD")
+2. Select optimal notation (judge by generality, completeness, readability)
+3. Create sub-files (redirect description)
+4. Add alias information to main file
 ```
 
-**【表記揺れ統一ルール】**
+### Notation Variation Unification Rules
 
-同じ概念の表記違い（例：OpenAI API vs OpenAI-API）は以下で統一：
+For different notations of same concept (e.g., OpenAI API vs OpenAI-API), unify as follows:
 
-1. **メインファイル選定**：最も一般的・完全な表記を採用
-2. **サブファイル作成**：表記揺れファイルは簡潔なリダイレクト記述
+1. **Main file selection**: Adopt the most general and complete notation
+1. **Sub-file creation**: Notation variation files have concise redirect description
 
 ```markdown
 # OpenAI-API
 
-[[OpenAI API]]と同義です。OpenAI 社が提供する API サービス。
+Synonymous with [[OpenAI API]]. API service provided by OpenAI.
 
-詳細は[[OpenAI API]]を参照してください。
+Please refer to [[OpenAI API]] for details.
 ```
 
-3. **統一原則**：スペース区切り > ハイフン区切り > アンダースコア区切り
+1. **Unification principle**: Space separation > Hyphen separation > Underscore separation
 
-### Phase 5: 次セットへの移行
+### Phase 5: Transition to Next Set
 
 ```text
-【継続判定】
-- リンク切れ0件 → 作業完了
-- リンク切れ残存 → 次の10件セットを選定して Phase 2 に戻る
-- 表記揺れ検出 → Phase 4 を優先実行
+【Continuation Decision】
+- 0 broken links → Work completed
+- Broken links remaining → Select next 10 file set and return to Phase 2
+- Notation variations detected → Prioritize Phase 4 execution
 
-【進捗レポート】
-各バッチ完了時に以下を記録：
-- 作成ファイル数: X件
-- リンク切れ減少: Y件 → Z件
-- 表記揺れ統一: N件
-- 推定残作業時間: W分
+【Progress Report】
+Record the following upon completion of each batch:
+- Files created: X files
+- Broken links reduced: Y → Z files
+- Notation variations unified: N files
+- Estimated remaining work time: W minutes
 ```
 
-## Python ツール利用時の注意点
+## **CRITICAL: Python Tool Usage Requirements**
 
-- ツール実行後も必ず grep_search/semantic_search でダブルチェック実施
-- 自動修復後は「ファイル構造インデックス.md」の手動更新必須
-- プレースホルダー（[[用語名]]、[[関連用語1]]等）は実際のリンク切れではない
-- 具体的なファイル名を持つリンク切れのみ修復対象とする
+- **MANDATORY**: Use `python link_checker.py` for ALL broken link detection
+- **MANDATORY**: Create files in order of reference frequency (highest first)
+- **NEVER**: Rely solely on grep_search or semantic_search for link checking
+- Always double-check with grep_search/semantic_search after tool execution
+- Manually update "File Structure Index.md" after automatic repair
+- Placeholders ([[Term Name]], [[Related Term 1]], etc.) are not actual broken links
+- Only repair broken links with specific file names
+
+### SUMMARY: Python-First Approach
+
+1. **Primary**: `python link_checker.py` (provides frequency-sorted broken link list)
+1. **Create files**: In order of reference count (high → low priority)
+1. **Verify**: Use grep_search/semantic_search for supplementary confirmation
+1. **Repeat**: Until broken links = 0

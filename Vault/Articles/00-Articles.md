@@ -87,8 +87,8 @@ Main article content
 
 ## Related Terms
 
-- [[Related Term 1]]
-- [[Related Term 2]]
+- ((Related Term 1)) - Use [[]] syntax when linking to actual existing files
+- ((Related Term 2)) - Use [[]] syntax when linking to actual existing files
 
 ## Tags
 
@@ -104,7 +104,17 @@ Main article content
 ## 🔗 Related Files
 
 - [[00-Words]] - Term index
-- ((00-FileIndex)) - Complete file list (Only this time use (()) instead of [[]] to avoid broken links in documentation. When creating actual content, always use [[]] syntax for links to existing files.)
+- ((00-FileIndex)) - Complete file list
+
+**Important Note for AI Agents**:
+
+- **In Vault documentation**: Use (()) for examples to avoid creating broken links in the knowledge base
+- **In Instructions/ directory**: ((Sample)) links are not recognized by Obsidian, so sample format can be used freely for examples and templates
+- **When creating actual files**: Always use [[]] syntax when linking to existing files within the Vault
+- **Link verification**: Only create [[]] links when the target file actually exists in the Vault
+- **Directory-specific rules**:
+  - Vault/ → Use (()) for examples, [[]] only for real files
+  - Instructions/ → Can use [[]] freely for examples since they're not processed by Obsidian
 - Individual category overview files in each subdirectory
 
 ## 🔄 Dynamic Directory Management

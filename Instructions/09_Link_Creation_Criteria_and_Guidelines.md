@@ -25,9 +25,9 @@
      * Case: "JavaScript" → grep_search("javascript", isRegexp=false)
      * Abbreviation/expansion: "API" → file_search("Application*Programming*Interface")
    - 【Semantic Detection】Notation variations requiring contextual understanding:
-     * Japanese/English mix: "AI" → semantic_search("人工知能 機械学習")
+     * Japanese/English mix: "AI" → semantic_search("artificial intelligence machine learning")
      * Abbreviation/formal: "Azure" → semantic_search("Microsoft Azure MS Azure")
-     * Synonyms: "フレームワーク" → semantic_search("ライブラリ framework library")
+     * Synonyms: "framework" → semantic_search("library framework toolkit")
 7. Check similar terms in the same directory using semantic_search
 8. Prioritize considering link density
 ```
@@ -99,401 +99,401 @@ Notation variations can be broadly divided into two types, each requiring differ
 **Features: Mechanically detectable by string patterns**
 
 ```text
-【ルールベース表記揺れの例】
-✓ スペース・ハイフン・アンダースコア：
+【Examples of Rule-based Notation Variations】
+✓ Space/hyphen/underscore:
   - OpenAI API ⟷ OpenAI-API ⟷ OpenAI_API ⟷ OpenAIAPI
   - React Router ⟷ React-Router ⟷ ReactRouter
   - Vue.js CLI ⟷ Vue.js-CLI ⟷ VuejsCLI
 
-✓ 大文字・小文字：
+✓ Case variations:
   - JavaScript ⟷ javascript ⟷ Javascript
   - GitHub ⟷ github ⟷ Github
 
-✓ 省略・展開：
+✓ Abbreviation/expansion:
   - API ⟷ Application Programming Interface
   - CLI ⟷ Command Line Interface
   - URL ⟷ Uniform Resource Locator
 ```
 
-**検出方法：**
+**Detection Methods:**
 
-- `file_search("用語1*用語2")` でワイルドカード検索
-- `grep_search("用語1.*用語2", isRegexp=true)` で正規表現検索
-- 文字列パターンマッチングで確実に検出可能
+- `file_search("term1*term2")` for wildcard search
+- `grep_search("term1.*term2", isRegexp=true)` for regex search
+- Reliable detection through string pattern matching
 
-##### 🧠 **2. 意味的解釈が必要な表記揺れ**
+##### 🧠 **2. Notation Variations Requiring Semantic Interpretation**
 
-**特徴：文脈・意味理解がないと検出困難**
+**Features: Difficult to detect without contextual understanding**
 
 ```text
-【意味的表記揺れの例】
-✓ 日本語⟷英語：
-  - AI ⟷ 人工知能 ⟷ 機械学習
-  - Cloud ⟷ クラウド ⟷ 雲
+【Examples of Semantic Notation Variations】
+✓ Language mixing:
+  - AI ⟷ artificial intelligence ⟷ machine learning
+  - Cloud ⟷ クラウド ⟷ cloud computing
   - Database ⟷ データベース ⟷ DB
 
-✓ 略称⟷正式名称：
+✓ Abbreviation/formal name:
   - Microsoft Azure ⟷ Azure ⟷ MS Azure
-  - Amazon Web Services ⟷ AWS ⟷ アマゾンウェブサービス
-  - Google Cloud Platform ⟷ GCP ⟷ グーグルクラウド
+  - Amazon Web Services ⟷ AWS ⟷ Amazon Web Services
+  - Google Cloud Platform ⟷ GCP ⟷ Google Cloud
 
-✓ 同義語・類義語：
-  - 機械学習 ⟷ Machine Learning ⟷ ML
-  - プログラミング ⟷ コーディング ⟷ 開発
-  - フレームワーク ⟷ ライブラリ（文脈により）
+✓ Synonyms/near-synonyms:
+  - Machine Learning ⟷ ML ⟷ Artificial Intelligence
+  - Programming ⟷ Coding ⟷ Development
+  - Framework ⟷ Library (context-dependent)
 ```
 
-**検出方法：**
+**Detection Methods:**
 
-- `semantic_search()` で意味的類似検索を実行
-- AI エージェントによる文脈理解と判断が必須
-- 同一ディレクトリ内の用語との意味的関連性チェック
+- Execute `semantic_search()` for semantic similarity search
+- AI agent contextual understanding and judgment required
+- Check semantic relationships with terms in the same directory
 
-##### 🚨 **検出戦略の使い分け**
+##### 🚨 **Detection Strategy Usage Guidelines**
 
 ```text
-【表記揺れ検出の実行順序】
-1. まずルールベース検索を実行（高速・確実）
-   → file_search, grep_search でパターンマッチ
-2. 次に意味的検索を実行（慎重・判断要）
-   → semantic_search で類似概念を検出
-3. 両方の結果を総合して統合判断
-   → AIエージェントによる最終的な意味判断
+【Execution Order for Notation Variation Detection】
+1. First execute rule-based search (fast & reliable)
+   → Pattern matching with file_search, grep_search
+2. Then execute semantic search (careful & judgment-based)
+   → Detect similar concepts with semantic_search
+3. Combine both results for integrated judgment
+   → Final semantic judgment by AI agent
 ```
 
-**表記揺れの統一例：**
+**Examples of Notation Unification:**
 
-- Microsoft Azure ⟷ Azure → どちらも[[Azure]]に統一
-- OpenAI API ⟷ OpenAI-API ⟷ OpenAIAPI → どちらも[[OpenAI API]]に統一（スペース版優先）
-- React Router ⟷ React-Router ⟷ ReactRouter → どちらも[[React Router]]に統一（スペース版優先）
-- AI ⟷ 人工知能 → どちらも[[AI]]に統一（短い方を優先）
+- Microsoft Azure ⟷ Azure → Unify both to [[Azure]]
+- OpenAI API ⟷ OpenAI-API ⟷ OpenAIAPI → Unify all to [[OpenAI API]] (prioritize space version)
+- React Router ⟷ React-Router ⟷ ReactRouter → Unify all to [[React Router]] (prioritize space version)
+- AI ⟷ artificial intelligence → Unify both to [[AI]] (prioritize shorter version)
 
-**スペース・ハイフン表記のルール：**
+**Rules for Space/Hyphen Notation:**
 
-- 公式ドキュメントでスペース区切り → スペース版をメイン
-- 公式ドキュメントでハイフン区切り → ハイフン版をメイン
-- 不明な場合 → スペース版を優先（読みやすさ重視）
+- Official documentation uses spaces → Use space version as main
+- Official documentation uses hyphens → Use hyphen version as main
+- When unclear → Prioritize space version (for readability)
 
-#### 表記揺れ・同義語統合プロトコル
+#### Notation Variation and Synonym Integration Protocol
 
-**【重要】同一意味ファイルの重複回避：**
+**【Important】Avoiding Duplicate Files with Same Meaning:**
 
 ```text
-【同義語チェック・統合手順】
-1. 新規リンク作成前に同一ディレクトリ内で類似用語を検索
-2. semantic_searchで意味的に同じ用語を検出
-3. 表記揺れや同義語が発見された場合は統合処理を実行
-4. メインファイルを選定（優先順位：公式名称 > 短い表記 > 使用頻度）
-5. サブファイルをリダイレクト形式に変更
-6. 既存リンクをメインファイル表記に一括置換
+【Synonym Check and Integration Procedure】
+1. Search for similar terms in the same directory before creating new links
+2. Detect semantically identical terms with semantic_search
+3. Execute integration process when notation variations or synonyms are found
+4. Select main file (priority: official name > shorter notation > usage frequency)
+5. Convert sub-files to redirect format
+6. Batch replace existing links to main file notation
 ```
 
-**統合の具体例：**
+**Specific Integration Examples:**
 
-**統合前：**
-
-```
-Words/Tools/OpenAI API.md（詳細内容）
-Words/Tools/OpenAI-API.md（詳細内容）
-Words/Tools/ChatGPT API.md（詳細内容）
-```
-
-**統合後：**
+**Before Integration:**
 
 ```
-Words/Tools/OpenAI API.md（詳細内容・メインファイル）
-Words/Tools/OpenAI-API.md（リダイレクト）
-Words/Tools/ChatGPT API.md（独立・異なるサービス）
+Words/Tools/OpenAI API.md (detailed content)
+Words/Tools/OpenAI-API.md (detailed content)
+Words/Tools/ChatGPT API.md (detailed content)
 ```
 
-**リダイレクトファイルの標準形式：**
+**After Integration:**
+
+```
+Words/Tools/OpenAI API.md (detailed content - main file)
+Words/Tools/OpenAI-API.md (redirect)
+Words/Tools/ChatGPT API.md (independent - different service)
+```
+
+**Standard Format for Redirect Files:**
 
 ```markdown
 # OpenAI-API
 
-[[OpenAI API]]と同義です。OpenAI 社が提供する API サービスの表記揺れ。
+Synonymous with [[OpenAI API]]. A notation variation of the API service provided by OpenAI.
 
-詳細は[[OpenAI API]]を参照してください。
+For details, please refer to [[OpenAI API]].
 
-## 関連概念
+## Related Concepts
 
-- [[OpenAI API]] - 正式表記
+- [[OpenAI API]] - Official notation
 ```
 
-**メインファイル選定の優先順位：**
+**Priority Order for Main File Selection:**
 
-1. **公式名称** > 略語・俗称
-2. **短い表記** > 長い表記（同等の場合）
-3. **使用頻度** > 使用頻度の低いもの
-4. **英語表記** > カタカナ表記（技術用語の場合）
+1. **Official name** > abbreviations/colloquial terms
+2. **Shorter notation** > longer notation (when equivalent)
+3. **Usage frequency** > less frequently used terms
+4. **English notation** > katakana notation (for technical terms)
 
-**一括置換の実行：**
+**Batch Replacement Execution:**
 
 ```text
-【リンク表記統一手順】
-1. grep_searchで旧表記のリンクを全検索
-2. 全ての[[旧表記]]を[[新表記]]に一括置換
-3. 置換後のリンク切れチェック実行
-4. ファイル構造インデックス.mdを更新
+【Link Notation Unification Procedure】
+1. Search all old notation links with grep_search
+2. Batch replace all [[old notation]] with [[new notation]]
+3. Execute broken link check after replacement
+4. Update file structure index.md
 ```
 
-#### 用語抽出の基準
+#### Term Extraction Criteria
 
-**リンク化すべき用語：**
+**Terms to be linked:**
 
-1. **技術用語・専門用語**
+1. **Technical Terms and Specialized Terms**
 
-   - プログラミング言語（Python、JavaScript、Go 等）
-   - フレームワーク・ライブラリ（React、Django、Express 等）
-   - ツール・サービス（Docker、Git、AWS 等）
-   - 技術概念（オブジェクト指向、関数型プログラミング等）
+   - Programming languages (Python, JavaScript, Go, etc.)
+   - Frameworks and libraries (React, Django, Express, etc.)
+   - Tools and services (Docker, Git, AWS, etc.)
+   - Technical concepts (Object-oriented programming, Functional programming, etc.)
 
-2. **人名・組織名**
+2. **Person Names and Organization Names**
 
-   - 著者名・開発者名
-   - 企業名・組織名（重要な場合のみ）
+   - Author names and developer names
+   - Company names and organization names (only when important)
 
-3. **重要なキーワード**
-   - 記事の主要テーマに関連する用語
-   - 繰り返し言及される概念
-   - 他の記事との関連性が高い用語
+3. **Important Keywords**
+   - Terms related to the main theme of the article
+   - Repeatedly mentioned concepts
+   - Terms with high relevance to other articles
 
-#### リンク化しない用語
+#### Terms Not to Link
 
-**避けるべきリンク：**
+**Links to avoid:**
 
-1. **一般的すぎる単語**
+1. **Overly General Words**
 
-   - 「技術」「方法」「システム」「データ」等の汎用語
-   - 「良い」「悪い」「簡単」「難しい」等の形容詞
+   - Generic terms like "technology", "method", "system", "data"
+   - Adjectives like "good", "bad", "simple", "difficult"
 
-2. **文脈依存の用語**
+2. **Context-dependent Terms**
 
-   - 文章の流れでのみ意味を持つ表現
-   - 曖昧で複数の意味を持つ用語
+   - Expressions that only have meaning within the flow of the text
+   - Ambiguous terms with multiple meanings
 
-3. **既に十分説明されている一般用語**
-   - HTML、CSS 等の基本的な Web 技術（専門的な使用法以外）
+3. **Already Well-explained General Terms**
+   - Basic web technologies like HTML, CSS (except for specialized uses)
 
-### 2. リンク密度の目安
+### 2. Link Density Guidelines
 
-#### 記事全体での推奨リンク数
+#### Recommended Number of Links per Article
 
-- **短い記事（500 字未満）**: 3-5 個
-- **中程度記事（500-1500 字）**: 5-10 個
-- **長い記事（1500 字以上）**: 10-20 個
+- **Short articles (under 500 characters)**: 3-5 links
+- **Medium articles (500-1500 characters)**: 5-10 links
+- **Long articles (over 1500 characters)**: 10-20 links
 
-#### 段落あたりの推奨リンク数
+#### Recommended Number of Links per Paragraph
 
-- **1 段落あたり最大 2-3 個**を目安とする
-- 連続するリンクは避ける（読みやすさ重視）
+- **Maximum 2-3 links per paragraph** as a guideline
+- Avoid consecutive links (prioritize readability)
 
-### 3. リンク名の命名規則
+### 3. Link Naming Conventions
 
-#### 基本ルール
+#### Basic Rules
 
-1. **正式名称を優先**
+1. **Prioritize Official Names**
 
-   - 「JavaScript」（○）vs「JS」（△）
-   - 「GitHub」（○）vs「ギットハブ」（×）
+   - "JavaScript" (○) vs "JS" (△)
+   - "GitHub" (○) vs "ギットハブ" (×)
 
-2. **スラッシュは\_に置換（必須）**
+2. **Replace Slashes with \_ (Mandatory)**
 
-   - 「CI/CD」→「CI_CD」
-   - 「HTML/CSS」→「HTML_CSS」
-   - 「OS/2」→「OS_2」
-   - 「TCP/IP」→「TCP_IP」
-   - 「UI/UX」→「UI_UX」
-   - 「I/O」→「I_O」
+   - "CI/CD" → "CI_CD"
+   - "HTML/CSS" → "HTML_CSS"
+   - "OS/2" → "OS_2"
+   - "TCP/IP" → "TCP_IP"
+   - "UI/UX" → "UI_UX"
+   - "I/O" → "I_O"
 
-3. **略語の扱い**
-   - 一般的な略語は使用可能（API、IDE、CLI 等）
-   - 独自略語は正式名称を優先
+3. **Handling Abbreviations**
+   - Common abbreviations are acceptable (API, IDE, CLI, etc.)
+   - Prioritize formal names for custom abbreviations
 
-#### 表記統一ルール
+#### Notation Unification Rules
 
-**優先順位：**
+**Priority Order:**
 
-1. **公式名称** > カジュアル名称
-2. **英語表記** > カタカナ表記（技術用語の場合）
-3. **完全形** > 略語形（曖昧性がある場合）
+1. **Official name** > casual name
+2. **English notation** > katakana notation (for technical terms)
+3. **Complete form** > abbreviated form (when ambiguity exists)
 
-## 用語カテゴリ別のリンク作成指針
+## Category-specific Link Creation Guidelines
 
-### Programming 関連
+### Programming Related
 
-**必ずリンク化：**
+**Must link:**
 
-- プログラミング言語名
-- フレームワーク・ライブラリ名
-- 設計パターン・概念名
+- Programming language names
+- Framework and library names
+- Design pattern and concept names
 
-**条件付きリンク化：**
+**Conditional linking:**
 
-- 基本的な HTML/CSS（特別な使用法の場合のみ）
-- 一般的なアルゴリズム名（具体的な実装に関する場合）
+- Basic HTML/CSS (only for special usage cases)
+- Common algorithm names (when discussing specific implementations)
 
-### Tools 関連
+### Tools Related
 
-**必ずリンク化：**
+**Must link:**
 
-- 開発ツール名（VSCode、IntelliJ 等）
-- AI サービス名（ChatGPT、GitHub Copilot 等）
-- バージョン管理ツール名
+- Development tool names (VSCode, IntelliJ, etc.)
+- AI service names (ChatGPT, GitHub Copilot, etc.)
+- Version control tool names
 
-**条件付きリンク化：**
+**Conditional linking:**
 
-- OS 名（特定の OS 固有の話題の場合のみ）
-- ブラウザ名（ブラウザ固有の機能に関する場合のみ）
+- OS names (only for OS-specific topics)
+- Browser names (only for browser-specific features)
 
-### Infrastructure 関連
+### Infrastructure Related
 
-**必ずリンク化：**
+**Must link:**
 
-- クラウドサービス名（AWS、Azure 等）
-- コンテナ技術（Docker、Kubernetes 等）
-- ネットワーク技術・プロトコル名
+- Cloud service names (AWS, Azure, etc.)
+- Container technologies (Docker, Kubernetes, etc.)
+- Network technologies and protocol names
 
-### Finance 関連
+### Finance Related
 
-**必ずリンク化：**
+**Must link:**
 
-- 投資商品名・金融商品名
-- 投資手法・戦略名
-- 金融機関名（重要な場合）
+- Investment product and financial product names
+- Investment methods and strategy names
+- Financial institution names (when important)
 
-## 品質チェック項目
+## Quality Check Items
 
-### リンク作成後の確認事項
+### Post-Link Creation Verification
 
-- [ ] リンク先ファイルが存在することを確認
-- [ ] リンク名が正式名称・統一表記であることを確認
-- [ ] スラッシュが\_に適切に置換されていることを確認
-- [ ] リンク密度が適切な範囲内であることを確認
-- [ ] 文章の読みやすさが保たれていることを確認
+- [ ] Confirm that linked files exist
+- [ ] Confirm that link names use official names and unified notation
+- [ ] Confirm that slashes are properly replaced with \_
+- [ ] Confirm that link density is within appropriate range
+- [ ] Confirm that text readability is maintained
 
-### 避けるべきパターン
+### Patterns to Avoid
 
-1. **過剰リンク化**
+1. **Excessive Linking**
 
-   - 1 つの段落に 5 個以上のリンク
-   - 隣接する単語の連続リンク化
+   - 5 or more links in one paragraph
+   - Consecutive linking of adjacent words
 
-2. **不適切なリンク**
+2. **Inappropriate Links**
 
-   - 一般的すぎる用語のリンク化
-   - 文脈なしには意味をなさない用語
+   - Linking overly general terms
+   - Terms that have no meaning without context
 
-3. **表記の不統一**
+3. **Notation Inconsistency**
 
-   - 同一記事内での表記揺れ
-   - 既存用語ファイルとの表記不一致
+   - Notation variations within the same article
+   - Notation inconsistency with existing term files
 
-4. **過度な概念細分化**
-   - API.md が存在するのに[[API設計]]を作成
-   - Docker.md が存在するのに[[Docker基本]]を作成
-   - 修飾語付きの不要な細分化リンク
+4. **Excessive Concept Fragmentation**
+   - Creating [[API Design]] when API.md exists
+   - Creating [[Docker Basics]] when Docker.md exists
+   - Unnecessary fragmentation with modified links
 
-## トラブルシューティング
+## Troubleshooting
 
-### よくある判断迷い
+### Common Decision Dilemmas
 
-**Q: HTML や CSS はリンク化すべき？**
-A: 基本的には No。ただし、CSS Grid、Flexbox 等の特定技術は可。
+**Q: Should HTML or CSS be linked?**
+A: Generally No. However, specific technologies like CSS Grid, Flexbox are acceptable.
 
-**Q: 企業名はすべてリンク化すべき？**
-A: 記事の主要テーマに関連する重要な企業のみ。
+**Q: Should all company names be linked?**
+A: Only important companies related to the main theme of the article.
 
-**Q: 略語と正式名称、どちらを優先すべき？**
-A: 一般的に使われている表記を優先。API は ○、Application Programming Interface は ×。
+**Q: Should abbreviations or formal names be prioritized?**
+A: Prioritize commonly used notation. API is ○, Application Programming Interface is ×.
 
-**Q: 本文に「CI/CD」と書かれている場合、リンクはどうすべき？**
-A: 必ず[[CI_CD]]とする。本文の表記は「CI/CD」のまま、リンクだけスラッシュを\_に置換。
+**Q: When the text says "CI/CD", how should the link be handled?**
+A: Must use [[CI_CD]]. Keep text notation as "CI/CD", only replace slashes with \_ in links.
 
-**Q: 「HTML/CSS」「TCP/IP」「UI/UX」等のスラッシュ含み用語は？**
-A: 全て\_に置換必須。[[HTML_CSS]]、[[TCP_IP]]、[[UI_UX]]とする。
+**Q: What about slash-containing terms like "HTML/CSS", "TCP/IP", "UI/UX"?**
+A: All must be replaced with \_. Use [[HTML_CSS]], [[TCP_IP]], [[UI_UX]].
 
-**Q: Microsoft Azure と Azure、両方のファイルが存在する場合は？**
-A: 短い方（Azure）をメインとし、長い方をリダイレクト形式に変更。本文のリンクは[[Azure]]に統一。
+**Q: When both Microsoft Azure and Azure files exist?**
+A: Use shorter version (Azure) as main, change longer version to redirect format. Unify text links to [[Azure]].
 
-**Q: AI と人工知能、どちらをメインファイルにすべき？**
-A: 短く一般的な「AI」をメインとし、「人工知能」はリダイレクト。
+**Q: Between AI and artificial intelligence, which should be the main file?**
+A: Use shorter and more common "AI" as main, make "artificial intelligence" a redirect.
 
-**Q: 同じ意味の用語が同じディレクトリに複数ある場合の判断基準は？**
-A: 1.公式名称 > 2.短い表記 > 3.使用頻度 > 4.英語表記の順で優先。
+**Q: What's the judgment criteria when multiple terms with same meaning exist in the same directory?**
+A: Priority order: 1.Official name > 2.Shorter notation > 3.Usage frequency > 4.English notation.
 
-**Q: API.md が存在するのに「API 設計」「API 管理」のリンクを作るべき？**
-A: No。過度な細分化を避け、[[API]]を使用。API.md の中で設計や管理についても扱う。
+**Q: Should I create "API Design" and "API Management" links when API.md exists?**
+A: No. Avoid excessive fragmentation, use [[API]]. Handle design and management within API.md.
 
-**Q: Docker.md が存在するのに「Docker 基本」「Docker 入門」のリンクを作るべき？**  
-A: No。[[Docker]]を使用し、既存ファイル内で基本から応用まで扱う方針を優先。
+**Q: Should I create "Docker Basics" and "Docker Introduction" links when Docker.md exists?**
+A: No. Use [[Docker]] and prioritize handling from basics to advanced topics within existing files.
 
-**Q: 既存ファイルがあるかどうかの判断基準は？**
-A: 修飾語（設計、管理、基本、入門等）を除いた核となる概念で file_search を実行。
+**Q: What's the judgment criteria for whether existing files exist?**
+A: Execute file_search with core concepts excluding modifiers (design, management, basics, introduction, etc.).
 
-**Q: OpenAI API と OpenAI-API、どちらをメインにすべき？**
-A: 公式ドキュメントの表記を確認。不明な場合はスペース版[[OpenAI API]]を優先。
+**Q: Between OpenAI API and OpenAI-API, which should be main?**
+A: Check official documentation notation. When unclear, prioritize space version [[OpenAI API]].
 
-**Q: React Router と React-Router、両方のファイルが存在する場合は？**
-A: 公式ドキュメントに従う。React 公式ではスペース表記のため[[React Router]]をメイン。
+**Q: When both React Router and React-Router files exist?**
+A: Follow official documentation. React official uses space notation, so [[React Router]] is main.
 
-**Q: スペース・ハイフンを含む用語の表記揺れ検索方法は？**
-A: file_search("用語 1*用語 2")と grep_search("用語 1.*用語 2", isRegexp=true)の両方を実行。
+**Q: What's the search method for notation variations with spaces/hyphens?**
+A: Execute both file_search("term1*term2") and grep_search("term1.*term2", isRegexp=true).
 
-**Q: 表記揺れがルールベースか意味的かどう判断する？**
-A: 文字列パターンで検出可能 → ルールベース、文脈理解が必要 → 意味的検出。
+**Q: How to determine if notation variation is rule-based or semantic?**
+A: Detectable by string patterns → rule-based, requires contextual understanding → semantic detection.
 
-**Q: 「AI」と「人工知能」のような意味的表記揺れの検出方法は？**
-A: semantic_search("AI 人工知能 機械学習 artificial intelligence")で類似概念を検索。
+**Q: What's the detection method for semantic notation variations like "AI" and "artificial intelligence"?**
+A: Search with semantic_search("AI artificial intelligence machine learning").
 
-**Q: 「Microsoft Azure」と「Azure」はどちらのタイプ？**
-A: 意味的表記揺れ。略称と正式名称の関係で、semantic_search での検出が必要。
+**Q: What type is "Microsoft Azure" and "Azure"?**
+A: Semantic notation variation. Relationship between abbreviation and formal name, requires semantic_search detection.
 
-**Q: ルールベースと意味的検出の両方で見つかった場合は？**
-A: 両方の結果を総合して AI エージェントが最終判断。より包括的なファイルを優先。
+**Q: When found by both rule-based and semantic detection?**
+A: AI agent makes final judgment combining both results. Prioritize more comprehensive files.
 
-### エラー回避方法
+### Error Prevention Methods
 
-1. **表記揺れの防止（タイプ別戦略）**
+1. **Prevention of Notation Variations (Type-specific Strategies)**
 
-   - 【ルールベース表記揺れ】パターンマッチング検索を徹底
-     - file_search + grep_search の組み合わせ使用
-     - スペース・ハイフン・大文字小文字の全パターン確認
-   - 【意味的表記揺れ】semantic_search での類似概念検出
-     - 日英混在、略称正式名称、同義語の幅広い検索
-     - 同一ディレクトリ内の関連用語との意味的関連チェック
-   - Words.md で最終確認
+   - 【Rule-based Notation Variations】Thorough pattern matching search
+     - Use combination of file_search + grep_search
+     - Check all patterns for space/hyphen/case variations
+   - 【Semantic Notation Variations】Similar concept detection with semantic_search
+     - Broad search for Japanese-English mix, abbreviation-formal name, synonyms
+     - Check semantic relationships with related terms in same directory
+   - Final confirmation with Words.md
 
-2. **過剰リンク化の防止**
+2. **Prevention of Excessive Linking**
 
-   - 段落ごとにリンク数をカウント
-   - 読み返して自然な流れかを確認
+   - Count links per paragraph
+   - Re-read to confirm natural flow
 
-3. **リンク切れの防止**
+3. **Prevention of Broken Links**
 
-   - file_search での事前確認を徹底
-   - リンク作成後の即座チェック
+   - Thorough pre-confirmation with file_search
+   - Immediate check after link creation
 
-4. **スラッシュ置換忘れの防止**
+4. **Prevention of Forgotten Slash Replacement**
 
-   - 用語抽出時点でスラッシュ含み用語を必ず\_に変換
-   - リンク作成時に[[CI/CD]]ではなく[[CI_CD]]を徹底
-   - 本文表記は変更せず、リンクのみ置換適用
+   - Always convert slash-containing terms to \_ at term extraction stage
+   - Ensure [[CI_CD]] not [[CI/CD]] during link creation
+   - Apply replacement only to links, not text notation
 
-5. **過度な細分化の防止**
+5. **Prevention of Excessive Fragmentation**
 
-   - 修飾語を除いた核となる概念で既存ファイル検索
-   - 包括的なファイルが存在する場合は新規作成を避ける
-   - 「設計」「管理」「基本」等の安易な追加を避ける
+   - Search existing files with core concepts excluding modifiers
+   - Avoid new file creation when comprehensive files exist
+   - Avoid easy addition of "design", "management", "basics", etc.
 
-6. **表記揺れ検出の二段階戦略**
-   - 【第一段階】ルールベース検出：パターンマッチングによる確実な検出
-     - file_search("用語 1*用語 2") + grep_search("用語 1.*用語 2", isRegexp=true)
-     - スペース・ハイフン・大文字小文字の全パターン確認
-   - 【第二段階】意味的検出：AI による文脈理解と類似概念検出
-     - semantic_search()での意味的類似用語検索
-     - 日英混在・略称正式名称・同義語の幅広い検出
-   - 公式ドキュメントの表記確認を最終判断基準とする
+6. **Two-stage Strategy for Notation Variation Detection**
+   - 【Stage 1】Rule-based Detection: Reliable detection through pattern matching
+     - file_search("term1*term2") + grep_search("term1.*term2", isRegexp=true)
+     - Check all patterns for space/hyphen/case variations
+   - 【Stage 2】Semantic Detection: AI contextual understanding and similar concept detection
+     - Semantic similar term search with semantic_search()
+     - Broad detection of Japanese-English mix, abbreviation-formal name, synonyms
+   - Use official documentation notation confirmation as final judgment criteria
 
 ---
 

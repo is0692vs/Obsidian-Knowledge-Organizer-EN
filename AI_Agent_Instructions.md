@@ -2,7 +2,23 @@
 
 **This project is a knowledge base for systematically managing IT-related knowledge in Obsidian.**
 
-## 🚀 Quick Start
+## � CRITICAL: Mandatory Python Tool Usage
+
+**BEFORE ANY LINK-RELATED WORK:**
+
+```bash
+# MANDATORY: Execute broken link check
+python link_checker.py
+```
+
+**RULES:**
+
+- **NEVER** create [[]] links without checking file existence
+- **ALWAYS** create files in frequency order (highest reference count first)
+- **MANDATORY** use Python tool for all broken link detection
+- Other tools (grep_search, semantic_search) are supplementary only
+
+## �🚀 Quick Start
 
 AI agents should first check the following file:
 

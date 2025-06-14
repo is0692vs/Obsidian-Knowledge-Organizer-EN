@@ -55,53 +55,53 @@
 ```markdown
 # {Article Title}
 
-{記事の簡潔な要約}
+{Concise summary of the article}
 
-## 内容
+## Content
 
-{記事の本文（[[]]リンク付き）}
+{Article main text (with [[]] links)}
 
-## 主要な技術・概念
+## Main Technologies and Concepts
 
-- [[技術1]]
-- [[技術2]]
-- [[技術3]]
+- [[Technology1]]
+- [[Technology2]]
+- [[Technology3]]
 
-## 関連記事
+## Related Articles
 
-- [[関連記事1]]
-- [[関連記事2]]
+- [[Related Article1]]
+- [[Related Article2]]
 
-## タグ
+## Tags
 
-- [[タグ1]]
-- [[タグ2]]
+- [[Tag1]]
+- [[Tag2]]
 
-## 参考情報
+## Reference Information
 
-- 著者：[[著者名]]
-- 原文 URL：{URL（もしあれば）}
-- 追加日：{日付}
+- Author: [[Author Name]]
+- Original URL: {URL (if available)}
+- Added Date: {Date}
 ```
 
-## 著者ファイル（Words/Authors/配下）
+## Author Files (under Words/Authors/)
 
 ```markdown
-# {著者名}
+# {Author Name}
 
-## 書いた記事一覧
+## List of Written Articles
 
-- [[記事タイトル1]]
-- [[記事タイトル2]]
-- [[記事タイトル3]]
+- [[Article Title1]]
+- [[Article Title2]]
+- [[Article Title3]]
 
-## 組織
+## Organization
 
-{所属組織・会社名（情報がない場合は「（情報なし）」）}
+{Affiliated organization/company name (if no information available, write "(No information)")}
 ```
 
-### ⚠️ 著者ファイルの記載ルール
+### ⚠️ Author File Recording Rules
 
-- **記載内容は「書いた記事一覧」と「組織」のみに限定**
-- プロフィール、専門分野、個人的な情報は記載しない
-- 記事とのリンクと組織情報のみを客観的に記載
+- **Recording content is limited to "List of Written Articles" and "Organization" only**
+- Do not record profile, specialties, or personal information
+- Record only objective information about article links and organizational information

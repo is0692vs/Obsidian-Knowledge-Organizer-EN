@@ -51,6 +51,4 @@ When adding articles to this directory:
 - 2025-06-15: Directory description file translated to English
 - 2025-06-13: Directory description file created
 
-## 更新履歴
-
-- 2025-06-13: ディレクトリ説明ファイル作成
+## Update History
