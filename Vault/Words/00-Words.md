@@ -160,4 +160,4 @@ More detailed explanation and technical content
 - In this documentation, we use (()) for examples to avoid creating broken links
 - When creating actual files and linking to existing files, always use [[]] syntax
 - Only create [[]] links when the target file actually exists
-- Never create [[]] links to non-existent example files like [[Sample Article]] or [[Example Term]]
+- Never create [[]] links to non-existent example files like ((Sample Article)) or ((Example Term))
