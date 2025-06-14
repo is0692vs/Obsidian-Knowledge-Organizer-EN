@@ -51,376 +51,378 @@ Knowledge Base/
 - `Words/Cloud/` → `Words/Cloud/00-Words-Cloud.md`
 - `Words/Programming/` → `Words/Programming/00-Words-Programming.md`
 
-#### オプション 2：末尾番号（一番下に表示）
+#### Option 2: Trailing number (displays at bottom)
 
 - `Articles/Cloud/` → `Articles/Cloud/ZZ-Articles-Cloud.md`
 - `Words/Cloud/` → `Words/Cloud/ZZ-Words-Cloud.md`
 - `Words/Programming/` → `Words/Programming/ZZ-Words-Programming.md`
 
-**推奨：オプション 1（先頭番号）**
+**Recommended: Option 1 (Leading number)**
 
-- ABC 順ソート時に説明ファイルが最上位に表示
-- ディレクトリを開いた時に即座に説明ファイルが目に入る
-- 新規ファイル追加時も常に見つけやすい位置を維持
+- Description files display at top during ABC sort
+- Description files are immediately visible when opening directory
+- Maintains easily findable position even when new files are added
 
-**この命名規則により：**
+**This naming convention provides:**
 
-- ファイル名だけで配置場所が特定可能
-- ABC 順ソート時に説明ファイルが目立つ位置に固定
-- 説明ファイルが対応するディレクトリ直下に配置
-- 他のファイルが増えても説明ファイルの視認性を保持
+- File placement location identifiable from filename alone
+- Description files fixed in prominent position during ABC sort
+- Description files placed directly under corresponding directory
+- Description file visibility maintained even as other files increase
 
-## ファイル配置の判断基準
+## File Placement Criteria
 
-### 用語ファイル配置（Words/）
+### Term File Placement (Words/)
 
-- プログラミング言語・フレームワーク・技法 → `Words/Programming/`
-- 開発ツール・AI 技術・ソフトウェア → `Words/Tools/`
-- クラウドサービス・プロバイダー → `Words/Cloud/`
-- インフラ技術・サーバー・ネットワーク → `Words/Infrastructure/`
-- 投資・金融・経済用語 → `Words/Finance/`
-- 人名・著者・開発者 → `Words/Authors/`
+- Programming languages, frameworks, techniques → `Words/Programming/`
+- Development tools, AI technology, software → `Words/Tools/`
+- Cloud services, providers → `Words/Cloud/`
+- Infrastructure technology, servers, networks → `Words/Infrastructure/`
+- Investment, finance, economic terms → `Words/Finance/`
+- Names, authors, developers → `Words/Authors/`
 
-### 記事ファイル配置（Articles/）
+### Article File Placement (Articles/)
 
-- プログラミング関連記事 → `Articles/Programming/`
-- ツール紹介・使い方記事 → `Articles/Tools/`
-- インフラ構築・運用記事 → `Articles/Infrastructure/`
-- クラウド活用記事 → `Articles/Cloud/`
-- 投資・資産運用記事 → `Articles/Finance/`
+- Programming-related articles → `Articles/Programming/`
+- Tool introduction and how-to articles → `Articles/Tools/`
+- Infrastructure construction and operation articles → `Articles/Infrastructure/`
+- Cloud utilization articles → `Articles/Cloud/`
+- Investment and asset management articles → `Articles/Finance/`
 
-## Words/ 説明ファイルの階層リンク構造
+## Words/ Description File Hierarchical Link Structure
 
-### 基本設計原則
+### Basic Design Principles
 
-**各ディレクトリ直下の同名.md 説明ファイルは、00-FileIndex.md の小型版として機能します：**
+**Each description .md file directly under a directory functions as a mini-version of 00-FileIndex.md:**
 
-- グラフビューでの意味のある階層構造を形成
-- ディレクトリ内の全用語ファイルへの[[]]リンクを体系的に整理
-- カテゴリ別の階層構造で知識のネットワーク化を実現
+- Forms meaningful hierarchical structure in graph view
+- Systematically organizes [[]] links to all term files in the directory
+- Realizes knowledge networking through category-based hierarchical structure
 
-### 説明ファイルの構造パターン
+### Description File Structure Pattern
 
-**必須セクション構成：**
+**Required section configuration:**
 
 ```markdown
-# ディレクトリ名
+# Directory Name
 
-## 概要
+## Overview
 
-グラフビューでの階層的な知識ネットワーク形成を明記
+Explicitly state hierarchical knowledge network formation in graph view
 
-## 主要カテゴリ
+## Main Categories
 
-### カテゴリ 1 名
+### Category 1 Name
 
-- [[用語1]] - 簡潔な説明
-- [[用語2]] - 簡潔な説明
+- [[Term1]] - Concise description (example format)
+- [[Term2]] - Concise description (example format)
 
-### カテゴリ 2 名
+### Category 2 Name
 
-- [[用語3]] - 簡潔な説明
-- [[用語4]] - 簡潔な説明
+- [[Term3]] - Concise description (example format)
+- [[Term4]] - Concise description (example format)
 
-## サブディレクトリ
+## Subdirectories
 
-- [[00-Words-Programming-Languages]] - プログラミング言語専門用語
-- [[00-Words-Programming-Frameworks]] - フレームワーク関連用語
+- [[00-Words-Programming-Languages]] - Programming language specialized terms
+- [[00-Words-Programming-Frameworks]] - Framework-related terms
 
-## サブディレクトリ構想
+**Note**: In Instructions/ directory, [[]] links like [[Sample File]] are safe to use for examples since they are not processed by Obsidian's link system.
 
-将来的なサブディレクトリ分割の指針
+## Subdirectory Planning
+
+Guidelines for future subdirectory division
 ```
 
-### ⚠️ 説明ファイルリンク構造の必須ルール
+### ⚠️ Mandatory Rules for Description File Link Structure
 
-**各説明ファイルは以下に必ずリンクする：**
+**Each description file must link to the following:**
 
-1. **同ディレクトリ内の全 md ファイル**
-   - 例：`Words/Programming/`内の`オブジェクト指向.md`、`コンパイル.md`等
-2. **サブディレクトリの説明ファイル**
+1. **All md files in the same directory**
+   - Example: `Object-Oriented.md`, `Compilation.md`, etc. in `Words/Programming/`
+2. **Description files of subdirectories**
 
-   - 例：`Words/Programming/Languages/`配下がある場合は`Words-Programming-Languages.md`
-   - サブディレクトリ命名規則：`親-子-孫.md`
+   - Example: If `Words/Programming/Languages/` exists, then `Words-Programming-Languages.md`
+   - Subdirectory naming convention: `Parent-Child-Grandchild.md`
 
-3. **リンク更新のタイミング**
-   - 新規ファイル作成時：即座に説明ファイルを更新
-   - サブディレクトリ作成時：親の説明ファイルにサブディレクトリリンクを追加
-   - ファイル移動時：移動元・移動先の説明ファイルを両方更新
+3. **Link update timing**
+   - When creating new file: Immediately update description file
+   - When creating subdirectory: Add subdirectory link to parent description file
+   - When moving file: Update both source and destination description files
 
-### 説明ファイル更新タイミング
+### Description File Update Timing
 
-**新規用語ファイル作成時：**
+**When creating new term file:**
 
-1. 用語ファイル作成後、即座に対応する説明ファイルを確認
-2. 適切なカテゴリに[[]]リンクを追加
-3. 必要に応じてカテゴリ構造を調整
-4. 5 件を超える場合はサブディレクトリ化を検討
+1. After creating term file, immediately check corresponding description file
+2. Add [[]] link to appropriate category
+3. Adjust category structure as needed
+4. Consider subdirectory creation if exceeding 5 files
 
-**サブディレクトリ作成時：**
+**When creating subdirectory:**
 
-1. 新サブディレクトリの説明ファイル作成（`親-子.md`形式）
-2. 親ディレクトリの説明ファイルに「サブディレクトリ」セクション追加
-3. 移動ファイルのリンクを親から削除、サブの説明ファイルに追加
+1. Create new subdirectory description file (`Parent-Child.md` format)
+2. Add "Subdirectories" section to parent directory description file
+3. Remove moved file links from parent, add to sub description file
 
-**説明ファイル編集の必須チェック項目：**
+**Mandatory checklist for description file editing:**
 
-- ✅ 同ディレクトリ内の全 md ファイルへの[[]]リンクが存在
-- ✅ 全サブディレクトリの説明ファイルへの[[]]リンクが存在
-- ✅ カテゴリ分類が論理的に整理
-- ✅ 階層構造がグラフビューで意味をなす
-- ✅ リンク切れが存在しない
+- ✅ [[]] links exist to all md files in same directory
+- ✅ [[]] links exist to all subdirectory description files
+- ✅ Category classification is logically organized
+- ✅ Hierarchical structure makes sense in graph view
+- ✅ No broken links exist
 
-### ディレクトリ別カテゴリ設計指針
+### Directory-specific Category Design Guidelines
 
 #### Programming/
 
-- プログラミング言語、Web 開発・フレームワーク、開発手法・設計、開発プロセス・実践、AI・先端技術、開発・学習リソース
+- Programming languages, Web development & frameworks, Development methods & design, Development processes & practices, AI & advanced technology, Development & learning resources
 
 #### Infrastructure/
 
-- コンテナ・仮想化技術、ネットワーク・セキュリティ、アーキテクチャ・サービス、運用・開発プロセス
+- Container & virtualization technology, Network & security, Architecture & services, Operations & development processes
 
 #### Tools/
 
-- IDE・エディタ・開発環境、AI ツール・支援開発、バージョン管理・パッケージ管理、ナレッジ管理・文書化
+- IDE & editors & development environments, AI tools & development support, Version control & package management, Knowledge management & documentation
 
 #### Services/
 
-- 開発・情報共有プラットフォーム
+- Development & information sharing platforms
 
 #### Authors/
 
-- 技術系記事執筆者（専門分野別）
+- Technical article writers (by specialty)
 
-#### Tags/、Finance/、Cloud/
+#### Tags/, Finance/, Cloud/
 
-- 現在は個別ファイル未作成、将来的な分類構想を記載
+- Currently no individual files created, future classification plans documented
 
-## Articles/ 説明ファイルの階層リンク構造
+## Articles/ Description File Hierarchical Link Structure
 
-### Articles/ 基本設計原則
+### Articles/ Basic Design Principles
 
-**各ディレクトリ直下の同名.md 説明ファイルは、記事管理のインデックスとして機能します：**
+**Each description .md file directly under a directory functions as an index for article management:**
 
-- グラフビューでの意味のある階層構造を形成
-- ディレクトリ内の全記事ファイルへの[[]]リンクを体系的に整理
-- カテゴリ別の階層構造で記事のネットワーク化を実現
+- Forms meaningful hierarchical structure in graph view
+- Systematically organizes [[]] links to all article files in the directory
+- Realizes article networking through category-based hierarchical structure
 
-### Articles/ 説明ファイルの構造パターン
+### Articles/ Description File Structure Pattern
 
-**必須セクション構成：**
+**Required section configuration:**
 
 ```markdown
-# ディレクトリ名
+# Directory Name
 
-## 概要
+## Overview
 
-グラフビューでの階層的な知識ネットワーク形成を明記
+Explicitly state hierarchical knowledge network formation in graph view
 
-## 収録記事
+## Collected Articles
 
-### カテゴリ 1 名
+### Category 1 Name
 
-- [[記事タイトル1]] - 簡潔な内容説明
-- [[記事タイトル2]] - 簡潔な内容説明
+- [[Article Title 1]] - Concise content description
+- [[Article Title 2]] - Concise content description
 
-### カテゴリ 2 名
+### Category 2 Name
 
-- [[記事タイトル3]] - 簡潔な内容説明
-- [[記事タイトル4]] - 簡潔な内容説明
+- [[Article Title 3]] - Concise content description
+- [[Article Title 4]] - Concise content description
 
-## サブディレクトリ
+## Subdirectories
 
-- [[Articles-Programming-WebDev]] - Web 開発関連記事
-- [[Articles-Programming-Languages]] - プログラミング言語記事
+- [[Articles-Programming-WebDev]] - Web development related articles
+- [[Articles-Programming-Languages]] - Programming language articles
 
-## サブディレクトリ構想
+## Subdirectory Planning
 
-将来的なサブディレクトリ分割の指針
+Guidelines for future subdirectory division
 ```
 
-### ⚠️ Articles 説明ファイルリンク構造の必須ルール
+### ⚠️ Mandatory Rules for Articles Description File Link Structure
 
-**各説明ファイルは以下に必ずリンクする：**
+**Each description file must link to the following:**
 
-1. **同ディレクトリ内の全記事 md ファイル**
-   - 例：`Articles/Programming/`内の記事ファイル全て
-2. **サブディレクトリの説明ファイル**
-   - 例：`Articles/Programming/WebDev/`配下がある場合は`Articles-Programming-WebDev.md`
-   - サブディレクトリ命名規則：`Articles-親-子.md`
+1. **All article md files in the same directory**
+   - Example: All article files in `Articles/Programming/`
+2. **Description files of subdirectories**
+   - Example: If `Articles/Programming/WebDev/` exists, then `Articles-Programming-WebDev.md`
+   - Subdirectory naming convention: `Articles-Parent-Child.md`
 
-### Articles/ 説明ファイル更新タイミング
+### Articles/ Description File Update Timing
 
-**新規記事ファイル作成時：**
+**When creating new article file:**
 
-1. 記事ファイル作成後、即座に対応する説明ファイルを確認
-2. 適切なカテゴリに[[]]リンクを追加
-3. 必要に応じてカテゴリ構造を調整
-4. 5 件を超える場合はサブディレクトリ化を検討
+1. After creating article file, immediately check corresponding description file
+2. Add [[]] link to appropriate category
+3. Adjust category structure as needed
+4. Consider subdirectory creation if exceeding 5 files
 
-**サブディレクトリ作成時：**
+**When creating subdirectory:**
 
-1. 新サブディレクトリの説明ファイル作成（`Articles-親-子.md`形式）
-2. 親ディレクトリの説明ファイルに「サブディレクトリ」セクション追加
-3. 移動記事のリンクを親から削除、サブの説明ファイルに追加
+1. Create new subdirectory description file (`Articles-Parent-Child.md` format)
+2. Add "Subdirectories" section to parent directory description file
+3. Remove moved article links from parent, add to sub description file
 
-**説明ファイル編集の必須チェック項目：**
+**Mandatory checklist for description file editing:**
 
-- ✅ 同ディレクトリ内の全記事ファイルへの[[]]リンクが存在
-- ✅ 全サブディレクトリの説明ファイルへの[[]]リンクが存在
-- ✅ カテゴリ分類が論理的に整理
-- ✅ 階層構造がグラフビューで意味をなす
-- ✅ リンク切れが存在しない
+- ✅ [[]] links exist to all article files in same directory
+- ✅ [[]] links exist to all subdirectory description files
+- ✅ Category classification is logically organized
+- ✅ Hierarchical structure makes sense in graph view
+- ✅ No broken links exist
 
-### Articles/ ディレクトリ別カテゴリ設計指針
+### Articles/ Directory-specific Category Design Guidelines
 
 #### Articles/Programming/
 
-- Python・Web 開発記事、言語別記事、フレームワーク記事、アルゴリズム記事
+- Python & Web development articles, Language-specific articles, Framework articles, Algorithm articles
 
 #### Articles/Infrastructure/
 
-- Docker・コンテナ技術記事、ネットワーク技術記事、セキュリティ記事、DevOps 記事
+- Docker & container technology articles, Network technology articles, Security articles, DevOps articles
 
 #### Articles/Tools/
 
-- AI 支援開発ツール記事、IDE・エディタ記事、バージョン管理記事、生産性向上ツール記事
+- AI-assisted development tool articles, IDE & editor articles, Version control articles, Productivity tool articles
 
-#### Articles/Cloud/、Articles/Finance/
+#### Articles/Cloud/, Articles/Finance/
 
-- 現在は個別記事未作成、将来的な分類構想を記載
+- Currently no individual articles created, future classification plans documented
 
-## STEP 2.5: .gitignore ファイルの更新【重要】
+## STEP 2.5: .gitignore File Update【Important】
 
-新しいサブディレクトリを作成した場合、.gitignore ファイルに説明ファイルの除外設定を追加してください：
+When creating new subdirectories, add exclusion settings for description files to the .gitignore file:
 
 ```gitignore
-# 新しいサブディレクトリの説明ファイルも追跡する
-!Vault/Articles/新ディレクトリ名/新ディレクトリ名.md
-!Vault/Words/新ディレクトリ名/新ディレクトリ名.md
+# Track description files of new subdirectories as well
+!Vault/Articles/NewDirectoryName/NewDirectoryName.md
+!Vault/Words/NewDirectoryName/NewDirectoryName.md
 ```
 
-## ディレクトリとファイルの作成
+## Directory and File Creation
 
-1. 新しいディレクトリを作成
-2. ディレクトリ直下に「ディレクトリ名.md」形式で説明ファイルを作成
-3. 関連する記事・用語ファイルを新ディレクトリに移動
+1. Create new directory
+2. Create description file in "DirectoryName.md" format directly under directory
+3. Move related article/term files to new directory
 
-## サブディレクトリ自動作成ルール
+## Automatic Subdirectory Creation Rules
 
-### 作成判断基準
+### Creation Decision Criteria
 
-**同一カテゴリのファイルが 4 つ以上蓄積し、かつ他の異なるカテゴリのファイルも存在する場合、サブディレクトリを作成する**
+**When 4 or more files of the same category accumulate AND files of other different categories also exist, create a subdirectory**
 
-#### 具体例
+#### Specific Example
 
-**Words/Programming/に以下のファイルが存在する場合：**
+**When the following files exist in Words/Programming/:**
 
 - C.md
 - Java.md
 - Python.md
 - JavaScript.md
-- オブジェクト指向.md
-- 関数型プログラミング.md
+- Object-Oriented.md
+- Functional Programming.md
 
-→ プログラミング言語（4 つ）と プログラミング概念（2 つ）が混在
-→ `Words/Programming/Languages/` サブディレクトリを作成
+→ Programming languages (4) and Programming concepts (2) are mixed
+→ Create `Words/Programming/Languages/` subdirectory
 
-**作成しない例：**
+**Examples where NOT to create:**
 
-- C.md、Java.md、Python.md の 3 つのみ → 4 つ未満なので作成しない
-- プログラミング言語のみで他のカテゴリが存在しない → 分割の意味がないので作成しない
+- Only C.md, Java.md, Python.md (3 files) → Don't create as less than 4
+- Only programming languages with no other categories → No point in division, so don't create
 
-### 作成手順
+### Creation Process
 
 ```text
-【サブディレクトリ作成プロセス】
-1. 対象ディレクトリ内のファイル分析・カテゴリ分類
-2. 4つ以上の同一カテゴリと他カテゴリの混在を確認
-3. 適切なサブディレクトリ名を決定
-   例：Languages（言語）、Frameworks（フレームワーク）、Concepts（概念）
-4. サブディレクトリの作成
-5. サブディレクトリ直下に同名の説明.mdファイルを作成
-6. 該当ファイルをサブディレクトリに移動
-7. 親ディレクトリの説明ファイルを更新
-8. 00-FileIndex.mdを更新
-9. リンク切れチェック実行
+【Subdirectory Creation Process】
+1. Analyze files in target directory and classify by category
+2. Confirm 4 or more files of same category mixed with other categories
+3. Determine appropriate subdirectory name
+   Examples: Languages, Frameworks, Concepts
+4. Create subdirectory
+5. Create description .md file with same name directly under subdirectory
+6. Move relevant files to subdirectory
+7. Update parent directory description file
+8. Update 00-FileIndex.md
+9. Execute broken link check
 ```
 
-### 推奨サブディレクトリ名
+### Recommended Subdirectory Names
 
-#### Words/Programming/配下
+#### Under Words/Programming/
 
-- **Languages/** - プログラミング言語（C、Java、Python 等）
-- **Frameworks/** - フレームワーク（React、Vue、Django 等）
-- **Concepts/** - プログラミング概念（オブジェクト指向、関数型等）
-- **Tools/** - 開発ツール（IDE、デバッガー等）
+- **Languages/** - Programming languages (C, Java, Python, etc.)
+- **Frameworks/** - Frameworks (React, Vue, Django, etc.)
+- **Concepts/** - Programming concepts (Object-oriented, Functional, etc.)
+- **Tools/** - Development tools (IDE, Debugger, etc.)
 
-#### Words/Infrastructure/配下
+#### Under Words/Infrastructure/
 
-- **Containers/** - コンテナ技術（Docker、Kubernetes 等）
-- **Networks/** - ネットワーク技術（TCP/IP、DNS 等）
-- **Security/** - セキュリティ技術（暗号化、認証等）
+- **Containers/** - Container technology (Docker, Kubernetes, etc.)
+- **Networks/** - Network technology (TCP/IP, DNS, etc.)
+- **Security/** - Security technology (Encryption, Authentication, etc.)
 
-#### Words/Tools/配下
+#### Under Words/Tools/
 
-- **Editors/** - エディタ・IDE（VSCode、IntelliJ 等）
-- **AI/** - AI ツール（GitHub Copilot、ChatGPT 等）
-- **VersionControl/** - バージョン管理（Git、SVN 等）
+- **Editors/** - Editors and IDEs (VSCode, IntelliJ, etc.)
+- **AI/** - AI tools (GitHub Copilot, ChatGPT, etc.)
+- **VersionControl/** - Version control (Git, SVN, etc.)
 
-### サブディレクトリ説明ファイルのテンプレート
+### Subdirectory Description File Template
 
 ```markdown
-# サブディレクトリ名
+# Subdirectory Name
 
-## 概要
+## Overview
 
-このディレクトリは[親ディレクトリ名]の[カテゴリ名]に関する用語を整理しています。
-グラフビューでの階層的な知識ネットワーク形成を目的としています。
+This directory organizes terms related to [Category Name] within [Parent Directory Name].
+Aims to form hierarchical knowledge network in graph view.
 
-## 収録用語
+## Collected Terms
 
-### [サブカテゴリ 1]
+### [Subcategory 1]
 
-- [[用語1]] - 簡潔な説明
-- [[用語2]] - 簡潔な説明
+- [[Term1]] - Concise description
+- [[Term2]] - Concise description
 
-### [サブカテゴリ 2]
+### [Subcategory 2]
 
-- [[用語3]] - 簡潔な説明
-- [[用語4]] - 簡潔な説明
+- [[Term3]] - Concise description
+- [[Term4]] - Concise description
 
-## 関連ディレクトリ
+## Related Directories
 
-- [[00-Words-Programming]] - 親ディレクトリ（必須）
-- [[00-Words-Tools]] - 関連する他のディレクトリ
+- [[00-Words-Programming]] - Parent directory (required)
+- [[00-Words-Tools]] - Related other directories
 
-## 追加指針
+## Additional Guidelines
 
-さらに細分化が必要になった場合の指針を記載
+Guidelines for further subdivision if needed
 ```
 
-### ⚠️ サブディレクトリ説明ファイル必須要素
+### ⚠️ Required Elements for Subdirectory Description Files
 
-**各サブディレクトリ説明ファイルは：**
+**Each subdirectory description file must:**
 
-1. **収録されている全ファイルにリンク**
-2. **親ディレクトリの説明ファイルにリンク**（必須）
-3. **関連する他のディレクトリにもリンク**
+1. **Link to all files contained within**
+2. **Link to parent directory description file** (required)
+3. **Also link to related other directories**
 
-### 実行タイミング
+### Execution Timing
 
-**自動作成を検討すべきタイミング：**
+**When to consider automatic creation:**
 
-1. 新規用語ファイル作成時
-2. 既存ディレクトリの整理時
-3. 月次メンテナンス時
-4. カテゴリ分析時
+1. When creating new term files
+2. When organizing existing directories
+3. During monthly maintenance
+4. During category analysis
 
-**チェック項目：**
+**Checklist:**
 
-- ✅ 同一カテゴリに 4 つ以上のファイル
-- ✅ 他カテゴリのファイルも存在
-- ✅ 論理的な分割が可能
-- ✅ サブディレクトリ名が適切
+- ✅ 4 or more files in same category
+- ✅ Files from other categories also exist
+- ✅ Logical division is possible
+- ✅ Subdirectory name is appropriate

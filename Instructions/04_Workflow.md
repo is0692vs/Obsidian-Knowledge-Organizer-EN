@@ -3,158 +3,158 @@
 ## 1. Adding New Articles (from Clippings)
 
 ```text
-【必須手順】
-1. 重複チェック（semantic_search、grep_search使用）
-2. 記事内容分析・カテゴリ決定
-3. **タグ分類・活用**
-   → Tags/配下を参照し、適用可能なタグを特定
-   → 既存タグで適切なものがない場合は新規タグ作成
-   → タグファイルの動的生成（Words/Tags/配下）
-   → 記事・用語へのタグ適用（frontmatterまたは関連リンク）
-4. 用語抽出・【重要】Words/ファイル動的生成
-   → 記事内で発見したキーワードについて
-   → file_searchで存在確認
-   → 未存在の場合は即座作成（適切な配置先に）
-   → 作成直後：grep_search でリンク切れチェック
-   → **作成と同時に対応する説明ファイル（00-Words-{カテゴリ名}.md）を更新**
-5. Articles/への記事作成【重要：元記事内容を完全保持】
-   → 記事の内容を要約・省略してはいけない
-   → メタデータ（frontmatter）の追加のみ許可
-   → 本文は元の内容をそのまま移動
-   → [[]]リンクの追加は本文内容を変更せずに行う
-   → 各[[]]リンク追加ごと：file_search で存在確認
-6. [[]]リンク追加（すべて対応ファイル確認済み状態）
-   → 1つのリンクごとに存在確認・作成・チェック
-   → 中間チェック：grep_search でリンク切れ確認
-7. インデックス更新
-   → 更新後：semantic_search でリンク整合性確認
-   → **対応する説明ファイル（00-Articles-{カテゴリ名}.md）を更新**
-8. Clippings/から元ファイル削除
-9. 最終リンク切れチェック（2回実行）
-   → 第1回：grep_search による全体チェック
-   → 第2回：semantic_search による総合確認
+【Required Steps】
+1. Duplication check (using semantic_search, grep_search)
+2. Article content analysis and category determination
+3. **Tag classification and utilization**
+   → Reference Tags/ subdirectory to identify applicable tags
+   → Create new tags if suitable existing tags don't exist
+   → Dynamic tag file generation (under Words/Tags/)
+   → Apply tags to articles and terms (frontmatter or related links)
+4. Term extraction and 【Important】dynamic Words/ file generation
+   → For keywords discovered in articles
+   → Check existence with file_search
+   → Create immediately if non-existent (in appropriate location)
+   → Immediately after creation: broken link check with grep_search
+   → **Update corresponding description file (00-Words-{CategoryName}.md) simultaneously with creation**
+5. Article creation in Articles/ 【Important: Complete preservation of original article content】
+   → Never summarize or abbreviate article content
+   → Only addition of metadata (frontmatter) is permitted
+   → Main text must be moved as-is from original content
+   → [[]] link addition must be done without changing main text content
+   → For each [[]] link addition: check existence with file_search
+6. [[]] link addition (all corresponding files verified)
+   → Existence confirmation, creation, and check for each link
+   → Intermediate check: broken link confirmation with grep_search
+7. Index update
+   → After update: link consistency confirmation with semantic_search
+   → **Update corresponding description file (00-Articles-{CategoryName}.md)**
+8. Delete original file from Clippings/
+9. Final broken link check (execute twice)
+   → First time: overall check with grep_search
+   → Second time: comprehensive confirmation with semantic_search
 ```
 
-### ⚠️ 記事内容保持の重要原則
+### ⚠️ Important Principles for Article Content Preservation
 
-- **記事の本文内容を要約・短縮・省略することは絶対禁止**
-- **元の記事の情報量・詳細度を維持する**
-- **変更可能な要素：メタデータ（frontmatter）、[[]]リンクの追加のみ**
-- **本文の構造・内容・分量は元記事と同一でなければならない**
+- **Absolutely prohibited to summarize, shorten, or abbreviate main article content**
+- **Maintain information volume and detail level of original article**
+- **Changeable elements: Only metadata (frontmatter) and addition of [[]] links**
+- **Main text structure, content, and volume must be identical to original article**
 
-### ⚠️ Words/ファイル作成について
+### ⚠️ About Words/ File Creation
 
-- Words/配下のファイルは記事処理時に動的生成される
-- 記事処理中にキーワードが出現した時点で初めて作成する
-- 「存在しないファイルにリンクする」状態は絶対禁止
+- Files under Words/ are dynamically generated during article processing
+- Created for the first time when keywords appear during article processing
+- "Linking to non-existent files" state is absolutely prohibited
 
-### ⚠️ リンク名のスラッシュ処理【重要】
+### ⚠️ Slash Processing in Link Names【Important】
 
-- **スラッシュを含むリンクは必ず\_（アンダースコア）に置換**
-- 例：[[CI/CD]] → [[CI_CD]]、[[HTML/CSS]] → [[HTML_CSS]]
-- 理由：Obsidian がスラッシュをディレクトリ区切りと誤認するため
+- **Links containing slashes must be replaced with \_ (underscore)**
+- Example: [[CI/CD]] → [[CI_CD]], [[HTML/CSS]] → [[HTML_CSS]]
+- Reason: Obsidian misinterprets slashes as directory separators
 
-## 2. 既存記事への[[]]リンク追加
+## 2. Adding [[]] Links to Existing Articles
 
 ```text
-【必須手順】
-1. 記事内重要用語の特定
-2. 【重要】スラッシュを含む用語は_に置換（例：CI/CD → CI_CD）
-3. 00-FileIndex.mdで事前確認
-4. file_searchで最終存在確認（用語ごと）
-5. 不足ファイルの即座作成（動的生成）
-   → 作成直後：grep_search でリンク切れチェック
-6. [[]]リンク追加（1つずつ段階的に）
-   → 各リンク追加後：file_search で存在再確認
-   → 中間チェック：grep_search でリンク切れ確認
-7. 00-FileIndex.md更新
-   → 更新後：semantic_search でリンク整合性確認
-8. 最終リンク切れチェック（3回実行）
-   → 第1回：grep_search による全体チェック
-   → 第2回：semantic_search による総合確認
-   → 第3回：ファイル構造インデックスとの照合
+【Required Steps】
+1. Identify important terms in article
+2. 【Important】Replace terms containing slashes with _ (e.g., CI/CD → CI_CD)
+3. Pre-check with 00-FileIndex.md
+4. Final existence confirmation with file_search (for each term)
+5. Immediate creation of missing files (dynamic generation)
+   → Immediately after creation: broken link check with grep_search
+6. [[]] link addition (step by step)
+   → After each link addition: re-confirm existence with file_search
+   → Intermediate check: broken link confirmation with grep_search
+7. 00-FileIndex.md update
+   → After update: link consistency confirmation with semantic_search
+8. Final broken link check (execute 3 times)
+   → First time: overall check with grep_search
+   → Second time: comprehensive confirmation with semantic_search
+   → Third time: cross-reference with file structure index
 ```
 
-## 3. 用語ファイル単体作成（動的生成）
+## 3. Individual Term File Creation (Dynamic Generation)
 
 ```text
-【必須手順】
-1. 適切なディレクトリ決定
-2. **タグ分類・活用**
-   → Tags/配下を参照し、適用可能なタグを特定
-   → 既存タグで適切なものがない場合は新規タグ作成
-   → タグファイルの動的生成（Words/Tags/配下）
-3. 【重要】ファイル名にスラッシュが含まれる場合は_に置換
-   例：「CI/CD.md」→「CI_CD.md」として作成
-4. ファイル作成（標準フォーマット使用）
-   → 作成直後：file_search で存在確認
-   → **作成と同時に対応する説明ファイル（00-Words-{カテゴリ名}.md）を更新**
-5. 関連用語の[[]]リンク追加前に存在確認・動的生成
-   → 各[[]]リンクごと：file_search で存在確認
-   → スラッシュを含む場合は_に置換してから処理
-   → 存在しない場合は即座作成
-   → 作成後：grep_search でリンク切れチェック
-6. 00-FileIndex.md更新
-   → 更新後：semantic_search でリンク整合性確認
-7. 00-Words.md更新
-8. 最終リンク切れチェック（2回実行）
-   → 第1回：grep_search による全体チェック
-   → 第2回：semantic_search による総合確認
+【Required Steps】
+1. Determine appropriate directory
+2. **Tag classification and utilization**
+   → Reference Tags/ subdirectory to identify applicable tags
+   → Create new tags if suitable existing tags don't exist
+   → Dynamic tag file generation (under Words/Tags/)
+3. 【Important】Replace _ if filename contains slashes
+   Example: "CI/CD.md" → Create as "CI_CD.md"
+4. File creation (using standard format)
+   → Immediately after creation: existence confirmation with file_search
+   → **Update corresponding description file (00-Words-{CategoryName}.md) simultaneously with creation**
+5. Existence confirmation and dynamic generation before adding related term [[]] links
+   → For each [[]] link: existence confirmation with file_search
+   → Replace with _ if containing slashes before processing
+   → Create immediately if non-existent
+   → After creation: broken link check with grep_search
+6. 00-FileIndex.md update
+   → After update: link consistency confirmation with semantic_search
+7. 00-Words.md update
+8. Final broken link check (execute twice)
+   → First time: overall check with grep_search
+   → Second time: comprehensive confirmation with semantic_search
 ```
 
-## 4. サブディレクトリ自動作成（ディレクトリ整理時）
+## 4. Automatic Subdirectory Creation (During Directory Organization)
 
 ```text
-【判断・実行手順】
-1. 対象ディレクトリ内のファイル分析
-   → 同一カテゴリのファイル数をカウント
-   → 異なるカテゴリのファイル存在確認
-2. 作成条件の確認
-   → 同一カテゴリ4つ以上 かつ 他カテゴリも存在
-   → 論理的な分割が可能か判断
-3. サブディレクトリ名の決定
-   → [[指示書/03_ディレクトリ構造と配置ルール#推奨サブディレクトリ名]]を参照
-4. サブディレクトリ作成
-   → create_directory ツールで作成
-5. 説明ファイル作成
-   → サブディレクトリ直下に「00-親ディレクトリ名-子ディレクトリ名.md」形式で作成
-   → 例：Words/Languages/ → Words/Languages/00-Words-Programming-Languages.md
-   → [[指示書/03_ディレクトリ構造と配置ルール#サブディレクトリ説明ファイルのテンプレート]]を使用
-   → **移動する全ファイルへのリンクを追加**
-   → **親ディレクトリの説明ファイルへのリンクを追加**
-6. ファイル移動
-   → 該当ファイルをサブディレクトリに移動
-   → run_in_terminal でmvコマンド実行
-7. 親ディレクトリ説明ファイル更新
-   → **移動したファイルのリンクを削除**
-   → **サブディレクトリの説明ファイルへのリンクを「サブディレクトリ」セクションに追加**
-   → カテゴリ分類の調整
-8. インデックス更新
-   → 00-FileIndex.md更新
-   → 00-Words.md更新（該当する場合）
-9. リンク切れチェック
-   → grep_search で移動後のリンク整合性確認
-   → semantic_search で総合確認
+【Decision and Execution Steps】
+1. Analyze files in target directory
+   → Count files of same category
+   → Confirm existence of files from different categories
+2. Confirm creation conditions
+   → 4 or more of same category AND other categories also exist
+   → Judge if logical division is possible
+3. Determine subdirectory name
+   → Reference [[Instructions/03_Directory_Structure_and_Placement_Rules#Recommended Subdirectory Names]]
+4. Create subdirectory
+   → Create with create_directory tool
+5. Create description file
+   → Create in "00-ParentDirectoryName-ChildDirectoryName.md" format directly under subdirectory
+   → Example: Words/Languages/ → Words/Languages/00-Words-Programming-Languages.md
+   → Use [[Instructions/03_Directory_Structure_and_Placement_Rules#Subdirectory Description File Template]]
+   → **Add links to all files to be moved**
+   → **Add link to parent directory description file**
+6. Move files
+   → Move relevant files to subdirectory
+   → Execute mv command with run_in_terminal
+7. Update parent directory description file
+   → **Delete links of moved files**
+   → **Add link to subdirectory description file in "Subdirectories" section**
+   → Adjust category classification
+8. Index update
+   → Update 00-FileIndex.md
+   → Update 00-Words.md (if applicable)
+9. Broken link check
+   → Confirm link consistency after move with grep_search
+   → Comprehensive confirmation with semantic_search
 ```
 
-### サブディレクトリ作成のタイミング
+### Subdirectory Creation Timing
 
-**自動作成を検討すべき時機：**
+**When to consider automatic creation:**
 
-- 新規用語ファイル作成後
-- 既存ディレクトリの月次レビュー時
-- 特定カテゴリのファイル数が 3 つに達した時（次の 1 つで作成条件達成）
+- After creating new term files
+- During monthly review of existing directories
+- When files of specific category reach 3 (next one will meet creation condition)
 
-### 作成例
+### Creation Example
 
-**Words/Programming/配下の場合：**
+**For Words/Programming/ subdirectory:**
 
 ```text
-既存ファイル：
-- C.md, Java.md, Python.md, JavaScript.md (プログラミング言語)
-- オブジェクト指向.md, 関数型プログラミング.md (プログラミング概念)
+Existing files:
+- C.md, Java.md, Python.md, JavaScript.md (programming languages)
+- Object-Oriented.md, Functional Programming.md (programming concepts)
 
-→ Languages/サブディレクトリを作成
-→ Languages/配下にプログラミング言語を移動
-→ Words-Languages.md説明ファイルを作成
+→ Create Languages/ subdirectory
+→ Move programming languages under Languages/
+→ Create Words-Languages.md description file
 ```
