@@ -104,7 +104,7 @@ Main article content
 ## 🔗 Related Files
 
 - [[00-Words]] - Term index
-- [[00-FileIndex]] - Complete file list
+- ((00-FileIndex)) - Complete file list (Only this time use (()) instead of [[]] to avoid broken links in documentation. When creating actual content, always use [[]] syntax for links to existing files.)
 - Individual category overview files in each subdirectory
 
 ## 🔄 Dynamic Directory Management
