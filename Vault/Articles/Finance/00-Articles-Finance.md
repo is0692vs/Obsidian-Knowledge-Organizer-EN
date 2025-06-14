@@ -1,42 +1,51 @@
 # 00-Articles-Finance
 
-## 概要
+## Overview
 
-このディレクトリは金融、投資、経済関連の記事を管理します。
+This directory manages articles related to finance, investment, and economics.
 
-## 対象範囲
+## Target Scope
 
-- 株式投資戦略・手法
-- 暗号通貨・デジタル資産
-- 経済分析・市場動向
-- フィンテック技術・サービス
-- 資産運用・ポートフォリオ理論
-- 金融規制・コンプライアンス
+- Stock investment strategies and methods
+- Cryptocurrency and digital assets
+- Economic analysis and market trends
+- Fintech technologies and services
+- Asset management and portfolio theory
+- Financial regulations and compliance
 
-## サブディレクトリ
+## Current Files
 
-現在、このディレクトリ直下に記事を配置していますが、記事数が増加した場合は以下のようなサブディレクトリの作成を検討します：
+This directory currently contains the following files:
 
-- Investment/ - 投資戦略・手法関連記事
-- Cryptocurrency/ - 暗号通貨・ブロックチェーン関連記事
-- Fintech/ - フィンテック技術・サービス関連記事
-- Economics/ - 経済分析・市場動向関連記事
-- Trading/ - トレーディング技術・アルゴリズム関連記事
+- [[00-Articles-Finance]] - This directory description file
 
-## 関連リンク
+_When new articles are added, they will be listed here with actual links to existing files._
 
-- [[00-Articles]] - 記事管理メインページ
+## Subdirectories
 
-## AI エージェント向け指示
+Currently, articles are placed directly in this directory. When the number of articles increases, consider creating subdirectories such as:
 
-このディレクトリに記事を追加する際は：
+- Investment/ - Investment strategy and method related articles
+- Cryptocurrency/ - Cryptocurrency and blockchain related articles
+- Fintech/ - Fintech technology and service related articles
+- Economics/ - Economic analysis and market trend related articles
+- Trading/ - Trading technology and algorithm related articles
 
-1. ファイル名は記事タイトルと同じにする
-2. 金融・投資関連の用語を抽出し、Words/Finance/ に用語ファイルを作成
-3. 著者情報があれば Words/Authors/ に著者ファイルを作成
-4. 投資戦略については具体的な手法名も用語として抽出
-5. 記事数が特定の分野（投資、暗号通貨等）で 5 件を超えた場合、サブディレクトリの作成を検討
+## Related Links
 
-## 更新履歴
+- [[00-Articles]] - Main articles management page
 
-- 2025-06-13: ディレクトリ説明ファイル作成
+## AI Agent Instructions
+
+When adding articles to this directory:
+
+1. Use the article title as the filename
+2. Extract finance and investment related terms and create term files in Words/Finance/
+3. Create author files in Words/Authors/ if author information is available
+4. Extract specific method names for investment strategies as terms
+5. Consider creating subdirectories when articles for specific fields (investment, cryptocurrency, etc.) exceed 5 files
+
+## Update History
+
+- 2025-06-15: Directory description file translated to English
+- 2025-06-13: Directory description file created

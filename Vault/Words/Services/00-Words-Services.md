@@ -1,53 +1,62 @@
 # 00-Words-Services
 
-## 概要
+## Overview
 
-このディレクトリは Web サービス、アプリケーション、プラットフォーム関連の用語を管理します。
+This directory manages terms related to web services, applications, and platforms.
 
-## 対象範囲
+## Target Scope
 
-- SaaS 製品・クラウドサービス
-- 開発支援サービス・プラットフォーム
-- 通信・コラボレーションツール
-- エンターテイメント・メディアサービス
-- ビジネス・生産性向上サービス
-- API・Web サービス
+- SaaS products and cloud services
+- Development support services and platforms
+- Communication and collaboration tools
+- Entertainment and media services
+- Business and productivity services
+- APIs and web services
 
-## サブディレクトリ
+## Current Files
 
-サービス関連用語が増加した場合は以下のようなサブディレクトリの作成を検討します：
+This directory currently contains the following files:
 
-- SaaS/ - SaaS 製品関連用語
-- Development/ - 開発支援サービス関連用語
-- Communication/ - 通信・コラボレーション関連用語
-- Entertainment/ - エンターテイメント関連用語
-- Business/ - ビジネス・生産性関連用語
-- APIs/ - API・Web サービス関連用語
+- [[00-Words-Services]] - This directory description file
 
-## 用語ファイルの構造
+_When new term files are added, they will be listed here with actual links to existing files._
 
-各サービス用語ファイルには以下の情報を含めます：
+## Subdirectories
 
-- サービスの基本説明・機能概要
-- 提供企業・運営組織
-- 主要な機能・特徴
-- 料金体系（概要のみ）
-- 競合サービス・代替手段
+When service-related terms increase, consider creating subdirectories such as:
 
-## 関連リンク
+- SaaS/ - SaaS product related terms
+- Development/ - Development support service related terms
+- Communication/ - Communication and collaboration related terms
+- Entertainment/ - Entertainment related terms
+- Business/ - Business and productivity related terms
+- APIs/ - API and web service related terms
 
-- [[00-Words]] - 用語集メインページ
+## Term File Structure
 
-## AI エージェント向け指示
+Each service term file includes the following information:
 
-このディレクトリに用語ファイルを追加する際は：
+- Basic service description and feature overview
+- Provider company or organization
+- Main features and characteristics
+- Pricing structure (overview only)
+- Competing services and alternatives
 
-1. 正式サービス名・ブランド名を使用
-2. 提供企業名も正確に記録
-3. 料金情報は変動するため詳細は避ける
-4. 競合サービスとの比較リンクを適切に設定
-5. 同一カテゴリの用語が 5 件を超えた場合、サブディレクトリ化を検討
+## Related Links
 
-## 更新履歴
+- [[00-Words]] - Main terms collection page
 
-- 2025-06-13: ディレクトリ説明ファイル作成
+## AI Agent Instructions
+
+When adding term files to this directory:
+
+1. Use official service names and brand names
+2. Record provider company names accurately
+3. Avoid detailed pricing information as it changes frequently
+4. Properly set comparison links with competing services
+5. Consider subdirectory creation when terms in the same category exceed 5 files
+
+## Update History
+
+- 2025-06-15: Directory description file translated to English
+- 2025-06-13: Directory description file created

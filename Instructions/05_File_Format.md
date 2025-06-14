@@ -1,59 +1,59 @@
-# 📝 05\_ファイルフォーマット
+# 📝 05_File Format
 
-## 説明ファイル命名規則
+## Description File Naming Rules
 
-**新規則：親ディレクトリ名-子ディレクトリ名.md**
+**New Rule: Parent directory name-child directory name.md**
 
-- ファイル名だけで配置場所を特定可能
-- 例：`Articles-Cloud.md`、`Words-Programming.md`
-- 配置場所：Vault/直下（ルートディレクトリ）
-- 従来の同名ファイル問題を解決
+- File name alone can identify placement location
+- Example: `Articles-Cloud.md`, `Words-Programming.md`
+- Placement location: Directly under Vault/ (root directory)
+- Solves traditional same-name file problems
 
-## 用語ファイル（Words/配下）
+## Term Files (under Words/)
 
 ```markdown
-# {用語名}
+# {Term Name}
 
-{用語の簡潔で正確な定義（1-2 行）}
+{Concise and accurate definition of the term (1-2 lines)}
 
-## 主な特徴
+## Main Features
 
-- {特徴 1}
-- {特徴 2}
-- {特徴 3}
+- {Feature 1}
+- {Feature 2}
+- {Feature 3}
 
-## {分野別セクション}
+## {Field-specific Section}
 
-### {カテゴリ 1}
+### {Category 1}
 
-- {具体的な説明}
+- {Specific explanation}
 
-### {カテゴリ 2}
+### {Category 2}
 
-- {具体的な説明}
+- {Specific explanation}
 
-## [[個人開発]]での活用
+## Application in ((Personal Development))
 
-（該当する場合のみ）
+(Only when applicable)
 
-- {実践的な活用方法}
-- {具体的なメリット}
+- {Practical application methods}
+- {Specific benefits}
 
-## 関連概念
+## Related Concepts
 
-- [[関連用語1]] - 関連性の説明
-- [[関連用語2]] - 関連性の説明
+- ((Related Term 1)) - Explanation of relationship
+- ((Related Term 2)) - Explanation of relationship
 
-## タグ
+## Tags
 
-- [[タグ1]]
-- [[タグ2]]
+- ((Tag1))
+- ((Tag2))
 ```
 
-## 記事ファイル（Articles/配下）
+## Article Files (under Articles/)
 
 ```markdown
-# {記事タイトル}
+# {Article Title}
 
 {記事の簡潔な要約}
 

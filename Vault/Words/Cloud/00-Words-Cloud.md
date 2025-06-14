@@ -1,52 +1,61 @@
 # 00-Words-Cloud
 
-## 概要
+## Overview
 
-このディレクトリはクラウドサービス、プラットフォーム関連の用語を管理します。
+This directory manages terms related to cloud services and platforms.
 
-## 対象範囲
+## Target Scope
 
-- AWS、Azure、Google Cloud Platform などの主要クラウドプロバイダー
-- 各クラウドサービス（EC2、Lambda、Azure Functions 等）
-- クラウドアーキテクチャパターン・概念
-- サーバーレス技術・FaaS
-- コンテナオーケストレーション・Kubernetes
-- クラウドセキュリティ・IAM
+- Major cloud providers (AWS, Azure, Google Cloud Platform, etc.)
+- Individual cloud services (EC2, Lambda, Azure Functions, etc.)
+- Cloud architecture patterns and concepts
+- Serverless technologies and FaaS
+- Container orchestration and Kubernetes
+- Cloud security and IAM
 
-## サブディレクトリ
+## Current Files
 
-クラウド関連用語が増加した場合は以下のようなサブディレクトリの作成を検討します：
+This directory currently contains the following files:
 
-- AWS/ - Amazon Web Services 関連用語
-- Azure/ - Microsoft Azure 関連用語
-- GoogleCloud/ - Google Cloud Platform 関連用語
-- Serverless/ - サーバーレス技術関連用語
-- Containers/ - コンテナ・オーケストレーション関連用語
+- [[00-Words-Cloud]] - This directory description file
 
-## 用語ファイルの構造
+_When new term files are added, they will be listed here with actual links to existing files._
 
-各クラウド用語ファイルには以下の情報を含めます：
+## Subdirectories
 
-- サービス・技術の基本説明
-- 提供プロバイダー・価格体系
-- 類似サービスとの比較
-- 使用事例・ベストプラクティス
-- 関連サービス・技術へのリンク
+When cloud-related terms increase, consider creating subdirectories such as:
 
-## 関連リンク
+- AWS/ - Amazon Web Services related terms
+- Azure/ - Microsoft Azure related terms
+- GoogleCloud/ - Google Cloud Platform related terms
+- Serverless/ - Serverless technology related terms
+- Containers/ - Container and orchestration related terms
 
-- [[00-Words]]- 用語集メインページ
+## Term File Structure
 
-## AI エージェント向け指示
+Each cloud term file includes the following information:
 
-このディレクトリに用語ファイルを追加する際は：
+- Basic explanation of the service or technology
+- Provider and pricing structure
+- Comparison with similar services
+- Use cases and best practices
+- Links to related services and technologies
 
-1. 正式サービス名を使用（AWS Lambda、Azure Functions 等）
-2. 略語がある場合は正式名称を優先し、略語も併記
-3. 料金・価格に関する情報は変動するため概要のみ
-4. 競合サービスとの比較リンクを適切に設定
-5. 同一カテゴリの用語が 5 件を超えた場合、サブディレクトリ化を検討
+## Related Links
 
-## 更新履歴
+- [[00-Words]] - Main terms collection page
 
-- 2025-06-13: ディレクトリ説明ファイル作成
+## AI Agent Instructions
+
+When adding term files to this directory:
+
+1. Use official service names (AWS Lambda, Azure Functions, etc.)
+2. Prioritize full names when abbreviations exist, also include abbreviations
+3. Include only general pricing information as rates are subject to change
+4. Properly set comparison links with competing services
+5. Consider subdirectory creation when terms in the same category exceed 5 files
+
+## Update History
+
+- 2025-06-15: Directory description file translated to English
+- 2025-06-13: Directory description file created

@@ -1,84 +1,86 @@
-# 🛠️ 08\_トラブルシューティング
+# 🛠️ 08_Troubleshooting
 
-## リンク切れ検出・修復
+## Broken Link Detection and Repair
 
-### 強化版検出手順
+### Enhanced Detection Procedure
 
 ```text
-【強化版検出手順】
-1. 第1段階：grep_search で "\\[\\[.*\\]\\]" を検索
-2. 第2段階：各リンク先について file_search で存在確認
-3. 第3段階：semantic_search でリンク整合性確認
-4. 第4段階：ファイル構造インデックスとの照合確認
-5. 存在しないファイルをリスト化（詳細記録）
+【Enhanced Detection Procedure】
+1. Stage 1: Search for "\\[\\[.*\\]\\]" using grep_search
+2. Stage 2: Check existence of each link target using file_search
+3. Stage 3: Verify link consistency using semantic_search
+4. Stage 4: Cross-check with file structure index
+5. List non-existent files (detailed records)
 
-【多段階修復手順】
-1. 配置ルールに従ってファイル作成（1つずつ）
-2. 作成直後：file_search で存在確認
-3. ファイル構造インデックス.md更新
-4. 更新後：grep_search でリンク切れチェック
-5. 全修復完了後：semantic_search で総合確認
-6. 最終確認として再度全段階チェック実行
+【Multi-stage Repair Procedure】
+1. Create files following placement rules (one by one)
+2. Immediately after creation: Verify existence using file_search
+3. Update file structure index
+4. After update: Check for broken links using grep_search
+5. After complete repair: Comprehensive check using semantic_search
+6. Final verification by running all stages again
 ```
 
-## よくあるエラーパターン
+## Common Error Patterns
 
-### 1. スラッシュを含むリンク名（重要）
+### 1. Link Names with Slashes (Important)
 
-- **問題**：[[CI/CD]]のようなスラッシュを含むリンクで Obsidian がディレクトリと判定
-- **対応**：スラッシュを\_（アンダースコア）に置換
-  - 例：[[CI/CD]] → [[CI_CD]]
-  - 例：[[HTML/CSS]] → [[HTML_CSS]]
-  - 例：[[Front-end/Back-end]] → [[Front-end_Back-end]]
+- **Problem**: Links like ((CI/CD)) where Obsidian interprets slashes as directories
+- **Solution**: Replace slashes with underscores
+  - Example: ((CI/CD)) → ((CI_CD))
+  - Example: ((HTML/CSS)) → ((HTML_CSS))
+  - Example: ((Front-end/Back-end)) → ((Front-end_Back-end))
 
-### 2. ファイル名の特殊文字
+### 2. Special Characters in File Names
 
-- **問題**：「CI/CD」→「CI-CD.md」に変換が必要
-- **対応**：特殊文字をハイフンに置換
+- **Problem**: "CI/CD" needs to be converted to "CI-CD.md"
+- **Solution**: Replace special characters with hyphens
 
-### 3. 表記揺れ
+### 3. Notation Variations
 
-- **問題**：「JavaScript」vs「Javascript」→ 統一表記を決定
-- **対応**：[[06_重複チェックと表記揺れ対応]]の統一ルールに従う
+- **Problem**: "JavaScript" vs "Javascript" → Need to decide unified notation
+- **Solution**: Follow unification rules in ((06_Duplication Check and Notation Variation Handling))
 
-### 4. 連鎖的未作成
+### 4. Cascading Non-creation
 
-- **問題**：新規ファイル内の[[]]も要確認
-- **対応**：段階的に存在確認・作成を実行
+- **Problem**: (([]]) within new files also need verification
+- **Solution**: Execute existence checking and creation step by step
 
-## エラー解決の優先順位
+## Error Resolution Priority Order
 
-1. **リンク切れ（最優先）**：全ての作業を停止してでも解決
-2. **表記揺れ**：バッチ作業として効率的に処理
-3. **カテゴリ分類ミス**：後回し可能（機能には影響しない）
-4. **フォーマット不備**：最後に修正
+1. **Broken Links (Highest Priority)**: Resolve even if it means stopping all other work
+2. **Notation Variations**: Process efficiently as batch work
+3. **Category Classification Errors**: Can be postponed (doesn't affect functionality)
+4. **Format Issues**: Fix last
 
-## デバッグ手順
+## Debug Procedure
 
-### 1. 問題の特定
+### 1. Problem Identification
 
 ```bash
-# リンク切れ一括検出
+# Batch detection of broken links
 python link_checker.py
 
-# grep検索でパターン確認
+# Pattern confirmation with grep search
 grep_search "\\[\\[.*\\]\\]"
 ```
 
-### 2. 問題の分析
+### 2. Problem Analysis
 
-- リンク切れの件数と種類を把握
-- 表記揺れパターンの識別
-- 優先度の判定
+- Understand the count and types of broken links
+- Identify notation variation patterns
+- Determine priority levels
 
-### 3. 修復の実行
+### 3. Repair Execution
 
-- 高優先度から順次修復
-- 修復後の検証を必ず実行
-- 進捗状況の記録
+- Repair sequentially from high priority
+- Always execute verification after repair
+- Record progress status
 
-### 4. 最終確認
+### 4. Final Verification
 
-- 全チェック項目の実行
-- 修復結果の報告
-- 次回作業への引き継ぎ事項の整理
+- Execute all check items
+- Report repair results
+- Organize handover items for next work
+
+**Note**: In examples above, we use (()) to avoid creating broken links in documentation. When creating actual content, use [[]] syntax for links to existing files.

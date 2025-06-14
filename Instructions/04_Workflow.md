@@ -1,6 +1,6 @@
-# 🔧 04\_作業フロー
+# 🔧 04_Workflow
 
-## 1. 新規記事追加（Clippings から）
+## 1. Adding New Articles (from Clippings)
 
 ```text
 【必須手順】

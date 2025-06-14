@@ -1,51 +1,51 @@
-# 📁 03\_ディレクトリ構造と配置ルール
+# 📁 03_Directory Structure and Placement Rules
 
-## ディレクトリ構造
+## Directory Structure
 
 ```text
-ナレッジベース/
-├── Articles/            # 整理された記事
-│   ├── Programming/     # プログラミング関連記事
-│   │   └── 00-Articles-Programming.md  # 説明ファイル
-│   ├── Tools/           # ツール関連記事
-│   │   └── 00-Articles-Tools.md        # 説明ファイル
-│   ├── Infrastructure/  # インフラ関連記事
-│   │   └── 00-Articles-Infrastructure.md # 説明ファイル
-│   ├── Cloud/           # クラウド関連記事
-│   │   └── 00-Articles-Cloud.md        # 説明ファイル
-│   ├── Finance/         # 投資関連記事
-│   │   └── 00-Articles-Finance.md      # 説明ファイル
-│   └── 00-Articles.md      # 記事インデックス
-├── Clippings/           # 元の記事クリップ（一時保存）
-├── Words/               # 用語集
-│   ├── Programming/     # プログラミング関連用語
-│   │   └── 00-Words-Programming.md     # 説明ファイル
-│   ├── Tools/           # ツール関連用語
-│   │   └── 00-Words-Tools.md           # 説明ファイル
-│   ├── Infrastructure/  # インフラ関連用語
-│   │   └── 00-Words-Infrastructure.md  # 説明ファイル
-│   ├── Cloud/           # クラウド関連用語
-│   │   └── 00-Words-Cloud.md           # 説明ファイル
-│   ├── Finance/         # 投資関連用語
-│   │   └── 00-Words-Finance.md         # 説明ファイル
-│   ├── Authors/         # 著者情報
-│   │   └── 00-Words-Authors.md         # 説明ファイル
-│   ├── Services/        # サービス情報
-│   │   └── 00-Words-Services.md        # 説明ファイル
-│   ├── Tags/            # タグ分類
-│   │   └── 00-Words-Tags.md            # 説明ファイル
-│   └── 00-Words.md         # 用語インデックス
-├── 00-FileIndex.md # 全ファイル一覧
-└── AI_マニュアル.md     # 詳細マニュアル（参考用）
+Knowledge Base/
+├── Articles/            # Organized articles
+│   ├── Programming/     # Programming related articles
+│   │   └── 00-Articles-Programming.md  # Description file
+│   ├── Tools/           # Tool related articles
+│   │   └── 00-Articles-Tools.md        # Description file
+│   ├── Infrastructure/  # Infrastructure related articles
+│   │   └── 00-Articles-Infrastructure.md # Description file
+│   ├── Cloud/           # Cloud related articles
+│   │   └── 00-Articles-Cloud.md        # Description file
+│   ├── Finance/         # Investment related articles
+│   │   └── 00-Articles-Finance.md      # Description file
+│   └── 00-Articles.md      # Article index
+├── Clippings/           # Original article clips (temporary storage)
+├── Words/               # Glossary
+│   ├── Programming/     # Programming related terms
+│   │   └── 00-Words-Programming.md     # Description file
+│   ├── Tools/           # Tool related terms
+│   │   └── 00-Words-Tools.md           # Description file
+│   ├── Infrastructure/  # Infrastructure related terms
+│   │   └── 00-Words-Infrastructure.md  # Description file
+│   ├── Cloud/           # Cloud related terms
+│   │   └── 00-Words-Cloud.md           # Description file
+│   ├── Finance/         # Investment related terms
+│   │   └── 00-Words-Finance.md         # Description file
+│   ├── Authors/         # Author information
+│   │   └── 00-Words-Authors.md         # Description file
+│   ├── Services/        # Service information
+│   │   └── 00-Words-Services.md        # Description file
+│   ├── Tags/            # Tag classification
+│   │   └── 00-Words-Tags.md            # Description file
+│   └── 00-Words.md         # Term index
+├── 00-FileIndex.md # Complete file list
+└── AI_Manual.md     # Detailed manual (reference)
 ```
 
-### ⚠️ 説明ファイル命名規則
+### ⚠️ Description File Naming Rules
 
-**新規則：番号付き親ディレクトリ名-子ディレクトリ名.md**
+**New Rule: Numbered parent directory name-child directory name.md**
 
-**2 つの命名オプション：**
+**Two naming options:**
 
-#### オプション 1：先頭番号（一番上に表示）
+#### Option 1: Leading number (displays at top)
 
 - `Articles/Cloud/` → `Articles/Cloud/00-Articles-Cloud.md`
 - `Words/Cloud/` → `Words/Cloud/00-Words-Cloud.md`

@@ -1,101 +1,130 @@
-# 📋 07\_インデックス管理
+# 📋 07_Index Management
 
-## 必須更新対象ファイル
+## Mandatory Update Target Files
 
-### 新規ファイル作成時に更新必須
+### Required Updates When Creating New Files
 
-1. **ファイル構造インデックス.md**
+1. **File Structure Index.md**
 
-   - 新規作成ファイルを適切なセクションに追加
-   - アルファベット順・あいうえお順で整理
+   - Add newly created files to appropriate sections
+   - Organize in alphabetical order
 
 2. **Words.md**
 
-   - 用語ファイル作成時に該当カテゴリに追加
+   - Add to relevant category when creating term files
 
 3. **Articles/Articles.md**
-   - 記事作成時に該当カテゴリに追加
+   - Add to relevant category when creating articles
 
-## インデックス更新フォーマット
+## Directory Description Files Guidelines
 
-### ファイル構造インデックス.md
+### Current File Summary Requirements
+
+Each directory description file (00-{Category}.md) must:
+
+1. **List actually existing files** - Do not create sample links to non-existent files
+2. **Provide real file summaries** - Document actual files currently managed in the directory
+3. **Use actual links only** - Only link to files that actually exist using [[filename]] syntax
+4. **Avoid sample links** - Never create examples like [[Article1]] or [[Sample Term]] as these create broken links in Obsidian
+
+### Correct vs Incorrect Linking Examples
+
+**❌ Incorrect (Sample Links):**
 
 ```markdown
-## {カテゴリ名}
+- ((Article1)) - Sample article about cloud computing
+- ((Term Example)) - Example programming term
+```
 
-- {ファイル名 1}.md
-- {ファイル名 2}.md（新規追加）
-- {ファイル名 3}.md
+**✅ Correct (Actual File Links):**
+
+```markdown
+- [[00-Articles-Cloud]] - Cloud computing articles index
+- [[JavaScript]] - Programming language overview (only if JavaScript.md exists)
+```
+
+**Important Note**: In examples above, we use (()) to avoid creating broken links in documentation. When creating actual content, always use [[]] syntax for links to existing files.
+
+## Index Update Format
+
+### File Structure Index.md
+
+```markdown
+## {Category Name}
+
+- {Filename 1}.md
+- {Filename 2}.md (newly added)
+- {Filename 3}.md
 ```
 
 ### Words.md
 
 ```markdown
-### {サブカテゴリ名}
+### {Subcategory Name}
 
-- [[用語名1]] - 簡潔な説明
-- [[用語名2]] - 簡潔な説明（新規追加）
+- [[Term Name1]] - Brief description
+- [[Term Name2]] - Brief description (newly added)
 ```
 
-## インデックス更新のタイミング
+## Index Update Timing
 
-1. 新規ファイル作成直後
-2. ファイル移動・削除時
-3. カテゴリ変更時
-4. **サブディレクトリ作成時**
-5. 作業セクション完了時
+1. Immediately after creating new files
+2. When moving or deleting files
+3. When changing categories
+4. **When creating subdirectories**
+5. When completing work sections
 
-## サブディレクトリ作成時の特別な更新作業
+## Special Update Tasks When Creating Subdirectories
 
-### 必須更新項目
+### Required Update Items
 
-1. **ファイル構造インデックス.md**
+1. **File Structure Index.md**
 
-   - 新しいサブディレクトリとその説明ファイルを追加
-   - 移動したファイルのパスを更新
+   - Add new subdirectories and their description files
+   - Update paths for moved files
 
-2. **親ディレクトリの説明ファイル**
+2. **Parent Directory Description Files**
 
-   - サブディレクトリへのリンクを追加
-   - カテゴリ分類を再構成
+   - Add links to subdirectories
+   - Reorganize category classifications
 
-3. **Words.md（該当する場合）**
-   - サブディレクトリ単位での分類に更新
+3. **Words.md (when applicable)**
+   - Update to subdirectory-based classifications
 
-### 更新例
+### Update Examples
 
-**サブディレクトリ作成前：**
+**Before Subdirectory Creation:**
 
 ```markdown
 ## Words/Programming/
 
-- [[C]] - プログラミング言語
-- [[Java]] - プログラミング言語
-- [[Python]] - プログラミング言語
-- [[オブジェクト指向]] - プログラミング概念
+- [[C]] - Programming language
+- [[Java]] - Programming language
+- [[Python]] - Programming language
+- [[Object-Oriented]] - Programming concept
 ```
 
-**サブディレクトリ作成後：**
+**After Subdirectory Creation:**
 
 ```markdown
 ## Words/Programming/
 
-- [[Programming]] - プログラミング関連用語の総合ディレクトリ説明
+- [[Programming]] - Comprehensive directory description for programming-related terms
 
-### サブディレクトリ
+### Subdirectories
 
-- [[Programming/Languages]] - プログラミング言語関連用語
-- [[Programming/Concepts]] - プログラミング概念関連用語
+- [[Programming/Languages]] - Programming language related terms
+- [[Programming/Concepts]] - Programming concept related terms
 
-### その他の用語
+### Other Terms
 
-- [[オブジェクト指向]] - プログラミング概念
+- [[Object-Oriented]] - Programming concept
 ```
 
-## インデックス更新時のチェック項目
+## Index Update Checklist
 
-- ✅ アルファベット順・あいうえお順の整理
-- ✅ 重複エントリがないことを確認
-- ✅ リンク切れがないことを確認
-- ✅ カテゴリ分類が適切であることを確認
-- ✅ サブディレクトリ作成条件の確認（同一カテゴリ 4 つ以上）
+- ✅ Organize in alphabetical order
+- ✅ Confirm no duplicate entries
+- ✅ Confirm no broken links
+- ✅ Confirm appropriate category classifications
+- ✅ Check subdirectory creation conditions (4 or more in same category)

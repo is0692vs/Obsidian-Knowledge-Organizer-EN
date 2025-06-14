@@ -1,43 +1,52 @@
 # 00-Words-Authors
 
-## 概要
+## Overview
 
-このディレクトリは記事執筆者、著名人、専門家に関する情報を管理します。
+This directory manages information about article authors, notable figures, and experts.
 
-## 対象範囲
+## Target Scope
 
-- 技術系記事執筆者・ブロガー
-- 業界専門家・コンサルタント
-- 研究者・学者
-- 起業家・経営者
-- エンジニア・開発者
-- オープンソースプロジェクトのメンテナー
+- Technical article writers and bloggers
+- Industry experts and consultants
+- Researchers and academics
+- Entrepreneurs and executives
+- Engineers and developers
+- Open source project maintainers
 
-## 用語ファイルの構造
+## Current Files
 
-各著者ファイルには以下の情報を含めます：
+This directory currently contains the following files:
 
-- 基本プロフィール（専門分野、所属等）
-- 主要な執筆記事・ブログ
-- 関連する技術・分野
-- SNS・公式サイトリンク
-- 代表的な業績・プロジェクト
+- [[00-Words-Authors]] - This directory description file
 
-## 関連リンク
+_When new author files are added, they will be listed here with actual links to existing files._
 
-- [[00-Words]] - 用語集メインページ
-- [[00-Articles]] - 記事管理メインページ
+## Term File Structure
 
-## AI エージェント向け指示
+Each author file includes the following information:
 
-このディレクトリに著者ファイルを追加する際は：
+- Basic profile (expertise, affiliation, etc.)
+- Major articles and blog posts
+- Related technologies and fields
+- Social media and official website links
+- Notable achievements and projects
 
-1. ファイル名は著者名（日本語著者は漢字、海外著者は英語表記）
-2. 同名の著者がいる場合は「著者名\_所属」で区別
-3. 著者の専門分野に応じて関連用語へのリンクを作成
-4. 外部リンクは公式サイト・SNS を優先
-5. 表記揺れ（ペンネーム、本名等）がある場合は統一表記を決定
+## Related Links
 
-## 更新履歴
+- [[00-Words]] - Main terms collection page
+- [[00-Articles]] - Main articles management page
 
-- 2025-06-13: ディレクトリ説明ファイル作成
+## AI Agent Instructions
+
+When adding author files to this directory:
+
+1. Use author name as filename (Japanese authors in Kanji, international authors in English)
+2. Distinguish authors with same names using "AuthorName_Affiliation" format
+3. Create links to related terms based on author's expertise
+4. Prioritize official websites and social media for external links
+5. Determine unified notation when there are variations (pen names, real names, etc.)
+
+## Update History
+
+- 2025-06-15: Directory description file translated to English
+- 2025-06-13: Directory description file created

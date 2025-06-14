@@ -1,53 +1,62 @@
 # 00-Words-Tools
 
-## 概要
+## Overview
 
-このディレクトリは開発ツール、ソフトウェア関連の用語を管理します。
+This directory manages terms related to development tools and software.
 
-## 対象範囲
+## Target Scope
 
-- IDE・エディタ（VS Code、IntelliJ、Vim 等）
-- ビルド・デプロイツール
-- バージョン管理システム・Git 関連ツール
-- AI ツール・AI 支援開発
-- 生産性向上ツール・ワークフロー改善
-- デバッグ・プロファイリングツール
+- IDEs and editors (VS Code, IntelliJ, Vim, etc.)
+- Build and deployment tools
+- Version control systems and Git related tools
+- AI tools and AI-assisted development
+- Productivity tools and workflow improvement
+- Debugging and profiling tools
 
-## サブディレクトリ
+## Current Files
 
-ツール関連用語が増加した場合は以下のようなサブディレクトリの作成を検討します：
+This directory currently contains the following files:
 
-- IDEs/ - IDE・エディタ関連用語
-- AI/ - AI ツール・AI 支援開発関連用語
-- Git/ - Git・バージョン管理関連用語
-- Build/ - ビルド・デプロイツール関連用語
-- Productivity/ - 生産性向上ツール関連用語
-- Testing/ - テスト・デバッグツール関連用語
+- [[00-Words-Tools]] - This directory description file
 
-## 用語ファイルの構造
+_When new term files are added, they will be listed here with actual links to existing files._
 
-各ツール用語ファイルには以下の情報を含めます：
+## Subdirectories
 
-- ツールの基本説明・主要機能
-- 開発元・ライセンス情報
-- 主要な使用事例・適用場面
-- 類似ツール・代替手段
-- インストール・セットアップ概要
+When tool-related terms increase, consider creating subdirectories such as:
 
-## 関連リンク
+- IDEs/ - IDE and editor related terms
+- AI/ - AI tools and AI-assisted development related terms
+- Git/ - Git and version control related terms
+- Build/ - Build and deployment tool related terms
+- Productivity/ - Productivity tool related terms
+- Testing/ - Testing and debugging tool related terms
 
-- [[00-Words]] - 用語集メインページ
+## Term File Structure
 
-## AI エージェント向け指示
+Each tool term file includes the following information:
 
-このディレクトリに用語ファイルを追加する際は：
+- Basic tool description and main features
+- Developer and license information
+- Major use cases and application scenarios
+- Similar tools and alternatives
+- Installation and setup overview
 
-1. 正式ツール名・製品名を使用
-2. オープンソース・商用の区別を明記
-3. バージョン情報が重要な場合は最新安定版を記録
-4. ライセンス情報は概要のみ（詳細は公式サイト参照）
-5. 同一カテゴリの用語が 5 件を超えた場合、サブディレクトリ化を検討
+## Related Links
 
-## 更新履歴
+- [[00-Words]] - Main terms collection page
 
-- 2025-06-13: ディレクトリ説明ファイル作成
+## AI Agent Instructions
+
+When adding term files to this directory:
+
+1. Use official tool names and product names
+2. Clearly distinguish between open source and commercial products
+3. Include alternative tools for comparison
+4. License information should be general overview only (refer to official sites for details)
+5. Consider subdirectory creation when terms in the same category exceed 5 files
+
+## Update History
+
+- 2025-06-15: Directory description file translated to English
+- 2025-06-13: Directory description file created

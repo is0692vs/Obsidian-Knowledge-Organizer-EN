@@ -1,88 +1,97 @@
 # 00-Words-Tags
 
-## 概要
+## Overview
 
-このディレクトリはタグ分類とカテゴリ整理を管理します。記事や用語を横断的に分類するためのタグシステムを提供します。
+This directory manages tag classification and category organization. It provides a tag system for cross-cutting classification of articles and terms.
 
-## 対象範囲
+## Target Scope
 
-- 技術分野別タグ（プログラミング言語、クラウド、インフラ等）
-- 記事種別タグ（チュートリアル、解説、比較、事例等）
-- 難易度別タグ（初級、中級、上級）
-- トレンド・時系列タグ
-- 業界・ドメイン別タグ
+- Technology field tags (programming languages, cloud, infrastructure, etc.)
+- Article type tags (tutorial, explanation, comparison, case study, etc.)
+- Difficulty level tags (beginner, intermediate, advanced)
+- Trend and chronological tags
+- Industry and domain-specific tags
 
-## タグファイルの構造
+## Current Files
 
-各タグファイルには以下の情報を含めます：
+This directory currently contains the following files:
 
-- タグの定義・対象範囲
-- 関連する記事一覧
-- 関連する用語一覧
-- サブタグ・関連タグ
-- 使用ガイドライン
+- [[00-Words-Tags]] - This directory description file
 
-## 関連リンク
+_When new tag files are added, they will be listed here with actual links to existing files._
 
-- [[00-Words]]- 用語集メインページ
-- [[00-Articles]] - 記事管理メインページ
+## Tag File Structure
 
-## AI エージェント向け指示
+Each tag file includes the following information:
 
-このディレクトリにタグファイルを追加する際は：
+- Tag definition and target scope
+- List of related articles
+- List of related terms
+- Sub-tags and related tags
+- Usage guidelines
 
-1. **既存タグ活用を最優先**
+## Related Links
 
-   - 新規ファイル作成時は、必ず Tags/配下を参照
-   - 適用可能な既存タグがあれば積極的に活用
-   - 記事・用語への適切なタグ付与を実施
+- [[00-Words]] - Main terms collection page
+- [[00-Articles]] - Main articles management page
 
-2. **新規タグ作成基準**
+## AI Agent Instructions
 
-   - 既存タグで適切に分類できない場合のみ新規作成
-   - タグ名は簡潔で分かりやすいものを使用
-   - 既存タグとの重複・類似性をチェック
+When adding tag files to this directory:
 
-3. **タグファイル作成手順**
+1. **Prioritize Using Existing Tags**
 
-   - 階層構造（親タグ・子タグ）を適切に設定
-   - 関連記事・用語のリンクを自動更新
-   - タグの使用頻度に応じて整理・統合を検討
+   - Always refer to Tags/ directory when creating new files
+   - Actively utilize existing tags when applicable
+   - Implement appropriate tagging for articles and terms
 
-4. **動的生成・更新**
-   - 記事・用語作成時にタグファイルも同時生成
-   - 関連コンテンツの追加時にタグファイルを更新
-   - タグファイル間の相互リンクを維持
+2. **New Tag Creation Criteria**
 
-### タグファイルフォーマット
+   - Create new tags only when existing tags cannot properly classify content
+   - Use concise and clear tag names
+   - Check for duplication and similarity with existing tags
+
+3. **Tag File Creation Process**
+
+   - Properly set hierarchical structure (parent tags, child tags)
+   - Automatically update links to related articles and terms
+   - Consider organization and consolidation based on tag usage frequency
+
+4. **Dynamic Generation and Updates**
+   - Generate tag files simultaneously when creating articles and terms
+   - Update tag files when adding related content
+   - Maintain cross-links between tag files
+
+### Tag File Format
 
 ```markdown
-# {タグ名}
+# {Tag Name}
 
-{タグの定義・適用範囲の説明}
+{Tag definition and scope description}
 
-## 関連記事
+## Related Articles
 
-- [[記事タイトル1]]
-- [[記事タイトル2]]
+- ((Article Title 1))
+- ((Article Title 2))
 
-## 関連用語
+## Related Terms
 
-- [[用語1]]
-- [[用語2]]
+- ((Term 1))
+- ((Term 2))
 
-## 関連タグ
+## Related Tags
 
-- [[親タグ]] - 上位概念
-- [[関連タグ]] - 横断的関係
-- [[子タグ]] - 下位概念
+- ((Parent Tag)) - Upper concept
+- ((Related Tag)) - Cross-cutting relationship
+- ((Child Tag)) - Lower concept
 
-## 使用ガイドライン
+## Usage Guidelines
 
-- {このタグを使用する条件・基準}
-- {適用例・非適用例}
+- {Conditions and criteria for using this tag}
+- {Application examples and non-application examples}
 ```
 
-## 更新履歴
+## Update History
 
-- 2025-06-13: ディレクトリ説明ファイル作成
+- 2025-06-15: Directory description file translated to English
+- 2025-06-13: Directory description file created
