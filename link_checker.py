@@ -147,7 +147,7 @@ class ObsidianLinkChecker:
         
         if report['broken_links_count'] > 0:
             print("\nBroken link ranking (by frequency):")
-            for i, item in enumerate(report['broken_targets_ranked'][:10], 1):
+            for i, item in enumerate(report['broken_targets_ranked'][:30], 1):
                 print(f"{i:2d}. {item['target']} ({item['count']} times)")
     
     def save_report(self, output_file: str = "broken_links.json"):
